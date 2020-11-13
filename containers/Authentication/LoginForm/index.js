@@ -62,7 +62,7 @@ const Forgot = () => {
           width: '15rem',
         }}
       >
-        <img src="/logoitmc.png" className="img-responsive" alt="" />
+        <img src="/vercel.svg" className="img-responsive" alt="" />
       </div>
       <p className="form__module">Quên mật khẩu</p>
       <form className="form__group">
@@ -156,7 +156,7 @@ const LoginForm = () => {
               onClick={() => router.push('/')}
               style={{ cursor: 'pointer' }}
             >
-              <img src="/logoitmc.png" className="img-responsive" alt="" />
+              <img src="/vercel.svg" className="img-responsive" alt="" />
             </motion.div>
             <motion.p
               animate={{ y: 0, opacity: 1 }}
