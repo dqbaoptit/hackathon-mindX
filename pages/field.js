@@ -1,10 +1,25 @@
-import '../styles/Home.module.scss';
+import '../styles/Field.module.scss';
 import { RoadmapCard } from '../components';
-export default function Home() {
+
+const temp = {
+  title: 'Lộ trình Frontend',
+  author: 'Dương Quốc Bảo',
+  descAuthor: 'Software Engineer',
+  img: '/vercel.svg',
+  description:
+    'Lorem ipsum dolor sit.  magni corporis dignissimos sed atque reiciendis dolorum laboriosam sint consequuntur, architecto, nulla voluptate, harum ducimus. Doloribus.',
+};
+export default function FieldContainer() {
   return (
-    <div className="container">
+    <div className="field">
       {[1, 2, 3].map((item) => (
-        <RoadmapCard />
+        <RoadmapCard
+          img={temp.img}
+          title={temp.title}
+          descAuthor={temp.descAuthor}
+          description={temp.description}
+          author={temp.author}
+        />
       ))}
     </div>
   );
