@@ -1,0 +1,35 @@
+.ctb-profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+
+  color: var(--text-title);
+
+  height: 80vh;
+  border-radius: 0px 20px 20px 0px;
+  background: var(--background);
+  border: 2px solid #eee;
+  padding: 1rem;
+  &__img {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 100%;
+    padding: 1rem;
+    border: 1px solid #fff;
+  }
+  &__name {
+    font-size: 1.6rem;
+  }
+  &__experience {
+    font-size: 1.2rem;
+  }
+  &__education {
+    font-size: 1.2rem;
+
+    &__timeline {
+      font-size: 1rem;
+      color: var(--gray);
+    }
+  }
+}

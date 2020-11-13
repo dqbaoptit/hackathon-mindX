@@ -17,6 +17,15 @@ export default function Home() {
         ))}
       </div>
 
+        <p className="description">This is my setup template &rarr;</p>
+
+        <div className="grid">
+          <a href="https://nextjs.org/docs" className="card">
+            <h3>Documentation &rarr;</h3>
+            <p>Find in-depth information about Next.js features and API.</p>
+          </a>
+          <div className="card"></div>
+        </div>
       </main>
       <footer className="footer">
         <a
