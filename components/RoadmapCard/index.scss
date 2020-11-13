@@ -1,0 +1,26 @@
+.roadmap-card {
+  padding: 1rem;
+  border-radius: 20px;
+  border: 1px solid #eee;
+  position: relative;
+  max-width: 30rem;
+  max-height: 20rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  &__left {
+    padding: 1rem;
+  }
+  &__right {
+    &__title {
+      font-size: 1.4rem;
+      color: var(--text-title);
+    }
+    &__desc {
+      font-size: 1rem;
+      color: var(--text-desc);
+    }
+  }
+}
