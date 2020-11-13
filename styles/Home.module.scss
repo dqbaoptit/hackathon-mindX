@@ -5,6 +5,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  &__field {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    @media (max-width: 800px) {
+      flex-direction: column;
+    }
+  }
 }
 
 .main {
