@@ -1,5 +1,5 @@
 import Api, { HOST } from '../../configs/Api';
-import { authConstant, localStorageConstant } from '../constants';
+import { localStorageConstant } from '../constants';
 import Axios from 'axios';
 import { setCookie } from '../../utils/cookie';
 import Router from 'next/router';

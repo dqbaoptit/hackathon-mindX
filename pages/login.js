@@ -1,4 +1,4 @@
-import { Login } from '../containers';
+import Login from '../containers/Authentication/LoginForm';
 export default function LoginForm() {
   return <Login />;
 }

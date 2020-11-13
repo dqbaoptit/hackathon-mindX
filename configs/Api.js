@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { localStorageConstant } from '../redux/constants/index';
+import { localStorageConstant } from '../redux/constants';
 import { getCookie, setCookie, removeCookie } from '../utils/cookie';
 
 export const HOST = 'https://itmc.herokuapp.com/api/v1';

@@ -17,7 +17,6 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import { useForm } from 'react-hook-form';
 import { motion } from 'framer-motion';
 import '../index.scss';
-import SignByGmail from './SignByGmail';
 
 let easing = [0.6, -0.05, 0.01, 0.99];
 
@@ -200,7 +199,6 @@ const LoginForm = () => {
                   Đăng nhập
                 </button>
               </div>
-              <SignByGmail />
               <div className="form__other">
                 <span>
                   Bạn chưa có tài khoản?{' '}
