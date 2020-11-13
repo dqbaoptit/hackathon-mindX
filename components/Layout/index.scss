@@ -1,0 +1,21 @@
+.navigation {
+  padding: 1rem;
+  max-height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 1px solid #eee;
+  &__right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__notification {
+      margin: 0 2rem;
+    }
+  }
+}
+
+.children {
+  margin: auto;
+}
