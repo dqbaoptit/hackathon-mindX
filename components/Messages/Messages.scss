@@ -1,0 +1,251 @@
+@import '../../styles/mixin';
+.messages-wrapper {
+  &__header {
+    display: flex !important;
+    padding-left: 36px;
+    margin-bottom: 0.5rem;
+  }
+
+  &__title-wrapper {
+    margin-left: 0.5rem;
+  }
+
+  &__status {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  &__title {
+    margin: 0;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  &__chat-content {
+    margin: 0 0 0 10px;
+  }
+
+  &__chat-view {
+    @include calc(height, '100vh - 179px');
+    overflow: auto;
+    border-top: 1px solid #f0365b;
+    border-bottom: 1px solid #f0365b;
+  }
+
+  &__messages {
+    &:hover {
+      ::-webkit-scrollbar-thumb {
+        background: #555 !important;
+      }
+    }
+  }
+
+  &__chat-item {
+    display: flex;
+    margin: 0px 16px 7px 16px;
+    word-wrap: break-word;
+    contain: style;
+    word-break: break-all;
+    word-break: break-word;
+  }
+
+  &__chat-item-me {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0px 16px 7px 16px;
+    word-wrap: break-word;
+    contain: style;
+    word-break: break-all;
+    word-break: break-word;
+  }
+
+  &__chat-message {
+    display: table;
+    word-wrap: break-word;
+    padding: 6px 12px 7px;
+    border-radius: 0.4rem;
+    background-color: #f1f0f0;
+    color: rgba(0, 0, 0, 1);
+    margin: 1px 0;
+    max-width: 300px;
+  }
+
+  &__chat-message-me {
+    display: table;
+    word-wrap: break-word;
+    padding: 6px 12px 7px;
+    border-radius: 0.4rem;
+    background-color: #f9718c;
+    color: #ffff;
+    clear: both;
+    float: right;
+    margin: 1px 0;
+    max-width: 300px;
+  }
+
+  &__chat-input {
+    height: 50px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__avatar-user {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &__icon-chat {
+    width: 30px;
+    margin: 0 0 0 10px;
+  }
+
+  &__input {
+    height: 40px !important;
+    border: none !important;
+    margin: 0 0 0 10px !important;
+    .ant-input {
+      border: none !important;
+      &:focus {
+        border-color: #ffff !important;
+        border-right-width: 0px !important;
+        outline: 0;
+        box-shadow: 0 0 0 0 rgba(24, 144, 255, 0.2) !important  ;
+      }
+      &:hover {
+        border-color: #ffff !important;
+        border-right-width: 0px !important;
+      }
+    }
+  }
+
+  &__info {
+    padding-top: 4rem;
+    @include calc(height, '100vh - 59px');
+    display: flex !important;
+    align-items: flex-start;
+    flex-direction: column;
+    background: linear-gradient(
+      75.89deg,
+      #2658a2 6.48%,
+      #fc2a46 101.95%,
+      #ff2945 101.96%
+    );
+  }
+
+  &__info-user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__avatar-info-user {
+    border: 8px solid #a43969 !important;
+    margin-bottom: 1rem !important;
+    box-shadow: 0 0 4px #f0365b !important;
+  }
+
+  &__title-user {
+    text-align: center;
+    p {
+      color: white !important;
+      font-size: 1rem;
+      font-weight: bold;
+      font-family: 'Montserrat', sans-serif;
+      font-style: normal;
+    }
+  }
+
+  &__content {
+    text-align: justify;
+    padding: 0 1.5rem 0 1.5rem;
+    p {
+      font-size: 'Montserrat', sans-serif;
+      color: #ffff !important;
+      margin: 0;
+    }
+  }
+
+  &__distance {
+    display: flex;
+    p {
+      font-size: 'Montserrat', sans-serif;
+      color: #ffff !important;
+      margin: 0 0 0 0.5rem;
+    }
+    margin: 0 0 1rem 0;
+  }
+
+  &__status-user {
+    p {
+      font-size: 'Montserrat', sans-serif;
+      color: #ffff !important;
+    }
+  }
+
+  &__name-bot {
+    color: #ffff !important;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    float: right;
+
+    margin: 0 1rem 0 0;
+  }
+
+  &__messages-bot {
+    color: #ffff !important;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    word-wrap: break-word;
+    clear: both;
+    margin: 0 0 0 1rem;
+  }
+
+  &__chat-bot {
+    position: relative;
+    margin: 1rem 0 0 3rem;
+    width: 175px;
+    border-radius: 4%;
+    height: auto;
+    background-color: #f9718c;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 74%;
+      left: 59%;
+      margin-left: -60%;
+      border-width: 15px;
+      border-style: solid;
+      border-color: #f9718c transparent transparent transparent;
+      transform: rotate(-82deg);
+    }
+  }
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #ffff;
+  }
+  ::-webkit-scrollbar-track:hover {
+    background: #e8e8e8;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  ::-webkit-scrollbar-thumb:focus {
+    background: #555;
+  }
+}

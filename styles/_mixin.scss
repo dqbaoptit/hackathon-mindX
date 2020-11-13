@@ -1,0 +1,91 @@
+@mixin trans-duration($time) {
+  -webkit-transition-duration: $time;
+  transition-duration: $time;
+}
+
+@mixin box-sizing {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@mixin transition($value) {
+  -webkit-transition: $value;
+  transition: $value;
+}
+
+@mixin transform($value) {
+  -webkit-transform: $value;
+  transform: $value;
+}
+
+@mixin animation($value) {
+  -webkit-animation: $value;
+  animation: $value;
+}
+
+@mixin flex-direction($value) {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: $value;
+  flex-direction: $value;
+}
+
+@mixin align-items($value) {
+  -webkit-box-align: $value;
+  -ms-flex-align: $value;
+  -ms-grid-row-align: $value;
+  align-items: $value;
+}
+
+@mixin display-flex($value) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: $value;
+}
+
+@mixin justify-content-between {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+@mixin justify-content-center {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+@mixin flex($value) {
+  -webkit-box-flex: 0;
+  -ms-flex: $value;
+  flex: $value;
+}
+
+@mixin flex-wrap($value) {
+  -ms-flex-wrap: $value;
+  flex-wrap: $value;
+}
+
+@mixin flex-center-end {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+@mixin flex-center {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+@mixin border {
+  border: 1px solid $border-color-default !important;
+  box-sizing: border-box !important;
+}
+
+@mixin calc($property, $expression) {
+  #{$property}: -moz-calc(#{$expression});
+  #{$property}: -webkit-calc(#{$expression});
+  #{$property}: calc(#{$expression});
+}
