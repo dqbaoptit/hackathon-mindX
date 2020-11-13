@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import '../styles/Home.module.scss';
-import { Counter } from '../containers/index';
 
 export default function Home() {
   return (
