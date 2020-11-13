@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import '../styles/Home.module.scss';
-import { Counter } from '../containers/index';
+import { FieldCard } from '../components';
 
 export default function Home() {
   return (
@@ -10,21 +10,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="main">
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+ 
+      <div className="container__field">
+        {[1, 2, 3, 4, 5].map((item) => (
+           <FieldCard />
+        ))}
+      </div>
 
-        <p className="description">This is my setup template &rarr;</p>
-
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-          <div className="card">
-            <Counter />
-          </div>
-        </div>
       </main>
       <footer className="footer">
         <a

@@ -1,58 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import ComputerIcon from '@material-ui/icons/Computer';
+
 import './index.scss';
 
 FieldCard.propTypes = {
     
 };
 
-const useStyles = makeStyles({
-    root: {
-      maxWidth: 345,
-    },
-    media: {
-      height: 140,
-    },
-  });
-
 function FieldCard() {
-    const classes = useStyles();
 
     return (
-        <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            Lizard
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
-      </CardActions>
-    </Card>
+        <div className='ctn'>
+            <div className='ctn__content'>
+                <div className="ctn__content__logo">
+                    <ComputerIcon fontSize='large'/>
+                </div>
+                <div className='ctn__content__intro'>
+                    <h3>Title</h3>
+                    <p>Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+            </div>
+            <div style={{margin: '1rem', 
+                        textAlign: 'right',
+                        display: 'flex',
+                        justifyContent: 'flex-end'}}
+            >
+                <button className='btn-primary'>button 1</button>
+                <button className='btn-primary'>button 2</button>
+            </div>
+            <hr className='hr'/>
+            <div className='ctn__info'>
+                <div className='ctn__info__class'>
+                    <span>Join</span>
+                    <p>1000</p>
+                </div>
+                <div className='ctn__info__class'>
+                    <span>Join</span>
+                    <p>1000</p>
+                </div>
+            </div>
+        </div>
     );
 }
 
