@@ -1,0 +1,30 @@
+{
+  "name": "nextjs-redux-template",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "NODE_OPTIONS=--max_old_space_size=4096 node server.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.56",
+    "@material-ui/pickers": "^3.2.10",
+    "@zeit/next-sass": "^1.0.1",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "gensync": "^1.0.0-beta.1",
+    "next": "9.5.2",
+    "node-sass": "^4.14.1",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-redux": "^7.2.1",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
+    "webpack": "^4.44.1",
+    "webpack-bundle-analyzer": "^3.8.0"
+  }
+}
