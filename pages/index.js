@@ -21,9 +21,7 @@ export default function Home() {
             <h3>Documentation &rarr;</h3>
             <p>Find in-depth information about Next.js features and API.</p>
           </a>
-          <div className="card">
-            <Counter />
-          </div>
+          <div className="card"></div>
         </div>
       </main>
       <footer className="footer">
