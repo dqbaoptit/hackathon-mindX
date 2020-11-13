@@ -2,8 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: gt-super, Georgia, Cambria, 'Times New Roman', Times, serif;
 }
 
 a {
@@ -20,4 +19,11 @@ a {
   width: 100%;
   height: 100%;
   margin: 0;
+}
+
+:root {
+  --text-title: #000;
+  --text-desc: red;
+  --background: #eee;
+  --background-light: #fff;
 }
