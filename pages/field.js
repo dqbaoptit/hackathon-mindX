@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import '../styles/Field.module.scss';
 import { RoadmapCard } from '../components';
 
@@ -12,7 +13,7 @@ const temp = {
 export default function FieldContainer() {
   return (
     <div className="field">
-      {[1, 2, 3].map((item) => (
+      {[1, 2, 3, 1, 1, 1].map((item) => (
         <RoadmapCard
           img={temp.img}
           title={temp.title}
