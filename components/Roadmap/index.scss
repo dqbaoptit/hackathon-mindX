@@ -1,0 +1,19 @@
+.root {
+  background: var(--root) !important;
+}
+.node {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  min-height: 10px;
+  min-width: 20px;
+  max-height: 3rem;
+  max-width: 17rem;
+  background: var(--node);
+  color: var(--text-title);
+}
