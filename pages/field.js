@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="container">
       <Head>
-        <title>My NextJS Template</title>
+        <title>Circle</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="main">

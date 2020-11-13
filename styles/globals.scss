@@ -14,3 +14,10 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.img-responsive {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}

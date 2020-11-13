@@ -1,3 +1,5 @@
 import Button from './Button';
 import Card from './Card';
-export { Button, Card };
+import Layout from './Layout';
+
+export { Button, Card, Layout };
