@@ -6,13 +6,13 @@ import './index.scss';
 
 FieldCard.propTypes = {};
 
-function FieldCard({ title, desc }) {
+function FieldCard({ title, desc, img }) {
   const router = useRouter();
   return (
     <div className="ctn">
       <div
         className="ctn__content"
-        style={{ background: "url('/vercel.svg')" }}
+        style={{ background: `url(${img})` }}
       >
         <div className="ctn__content__intro">
           <p>{desc}</p>
