@@ -20,7 +20,6 @@ function ScreenProfile({ firstName, lastName  }) {
             <div className='profile__info'>
                 <div className='profile__info__name'>
                     <h1>{firstName + " " + lastName}</h1>
-                    <EditIcon />
                 </div>
                 <a>Change password</a>
                 <h2>Your group: </h2>
