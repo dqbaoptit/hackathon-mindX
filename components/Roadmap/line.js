@@ -1,4 +1,4 @@
-export default ({
+export default function Line({
   sourceX,
   sourceY,
   sourcePosition,
@@ -7,7 +7,7 @@ export default ({
   targetPosition,
   connectionLineType,
   connectionLineStyle,
-}) => {
+}) {
   return (
     <g>
       <path
@@ -27,4 +27,4 @@ export default ({
       />
     </g>
   );
-};
+}
