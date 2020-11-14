@@ -6,7 +6,7 @@ import { localStorageConstant } from '../redux/constants';
 import { isAuthenticated } from '../utils/middleware';
 import React, { useEffect, useState } from 'react';
 import { ScreenProfile } from '../components';
-import { GetProfile } from '../redux/actions/profile';
+import { GetProfile, GetRegisteredRoadmaps } from '../redux/actions/profile';
 import { Grid } from '@material-ui/core';
 
 function Profile() {
@@ -65,6 +65,14 @@ const items = [
   },
 ];
 function Home({ user }) {
+  const [listRoadmaps, setListRoadmaps] = useState([]);
+  useEffect(() => {
+    async function listRoadmaps() {
+      const { data } = await GetRegisteredRoadmaps();
+      setListRoadmaps([...data]);
+    }
+    listRoadmaps();
+  }, []);
   return (
     <>
       <Profile />

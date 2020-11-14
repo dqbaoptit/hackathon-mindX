@@ -6,10 +6,7 @@ function FieldCard({ title, desc, img, slug }) {
   const router = useRouter();
   return (
     <div className="ctn">
-      <div
-        className="ctn__content"
-        style={{ background: `"url('${img}')" !important` }}
-      >
+      <div className="ctn__content" style={{ background: `url('${img}')` }}>
         <div className="ctn__content__intro">
           <p>{desc}</p>
         </div>
