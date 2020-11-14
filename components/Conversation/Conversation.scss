@@ -2,7 +2,7 @@
 
 .conversations-wrapper {
   margin-top: 0.5rem;
-  border-right: 3px solid #f0365b;
+  border-right: 1px solid var(--border-solid-room);
 
   &:hover {
     ::-webkit-scrollbar-thumb {
@@ -11,7 +11,7 @@
   }
 
   &__conversations {
-    border-top: 1px solid #f0365b;
+    border-top: 1px solid var(--border-solid-room);
     border-radius: 4px;
     overflow: auto;
     padding: 8px 24px;
@@ -22,10 +22,8 @@
     .ant-list-item-meta-title {
       font-size: 1.1rem !important;
       font-weight: bold !important;
-      font-family: 'Montserrat', sans-serif !important;
     }
     .ant-list-item-meta-description {
-      font-family: 'Montserrat', sans-serif !important;
     }
   }
 
@@ -44,10 +42,9 @@
   &__title {
     margin: 0 0 0 0.5rem;
     width: 100%;
-    color: #f0365b;
+    // color: #f0365b;
     font-size: 1.4rem;
     font-weight: 600;
-    font-family: 'Montserrat', sans-serif !important;
   }
   /* width */
   ::-webkit-scrollbar {
