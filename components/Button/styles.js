@@ -3,7 +3,7 @@ import css from 'styled-jsx/css';
 export default css.global`
    {
     .button {
-      background: #338eef;
+      background: #006d77;
       border-radius: 2.5rem;
       border: 1px solid #338eef;
       padding: 6% 10%;
@@ -22,11 +22,11 @@ export default css.global`
       box-shadow: 0px 4px 20px rgba(90, 163, 241, 0.2);
       background: #fff;
       border: 1px solid #338eef;
-      color: #338eef;
+      color: #006d77;
       transition: 0.3s all ease-in-out;
     }
     .active {
-      background: #338eef;
+      background: #006d77;
     }
     .inactive {
       border: 1px solid #dee2e6;

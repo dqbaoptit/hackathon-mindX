@@ -2,7 +2,11 @@ import { Signup } from '../containers';
 import initialize from '../utils/initialize';
 
 function SignForm() {
-  return <Signup />;
+  return (
+    <div className="background">
+      <Signup />
+    </div>
+  );
 }
 SignForm.getInitialProps = async (ctx) => {
   initialize(ctx);

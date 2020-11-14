@@ -3,6 +3,8 @@ import { IconButton } from '@material-ui/core';
 import Popover from '@material-ui/core/Popover';
 import MenuItem from '@material-ui/core/MenuItem';
 import { useRouter } from 'next/router';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 export default function Button() {
   const router = useRouter();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -20,7 +22,7 @@ export default function Button() {
   return (
     <>
       <IconButton onClick={handleClick}>
-        <AccountIcon style={{ fontSize: '2rem' }} />
+        <AccountIcon style={{ fontSize: '2rem', color: '#eee' }} />
       </IconButton>
       <Popover
         id={id}
@@ -36,22 +38,37 @@ export default function Button() {
           horizontal: 'center',
         }}
       >
-        <MenuItem
-          onClick={() => {
-            router.push('/profile');
-            handleClose();
-          }}
-        >
-          Profile
-        </MenuItem>
-        <MenuItem
-          onClick={() => {
-            router.push('/logout');
-            handleClose();
-          }}
-        >
-          Logout
-        </MenuItem>
+        <div style={{ width: '10rem' }}>
+          <MenuItem
+            onClick={() => {
+              router.push('/profile');
+              handleClose();
+            }}
+            style={{
+              height: '4rem',
+              display: 'flex',
+              justifyContent: 'space-around',
+
+              alignItems: 'center',
+            }}
+          >
+            <AccountCircleIcon /> Profile
+          </MenuItem>
+          <MenuItem
+            onClick={() => {
+              router.push('/logout');
+              handleClose();
+            }}
+            style={{
+              height: '4rem',
+              display: 'flex',
+              justifyContent: 'space-around',
+              alignItems: 'center',
+            }}
+          >
+            <ExitToAppIcon /> Logout
+          </MenuItem>
+        </div>
       </Popover>
     </>
   );

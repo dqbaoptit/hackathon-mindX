@@ -14,7 +14,7 @@ export default function Layout({ children }) {
         <div className="navigation__right">
           <div className="navigation__right__notification">
             <IconButton>
-              <NotificationsIcon style={{ fontSize: '2rem' }} />
+              <NotificationsIcon style={{ fontSize: '2rem', color: '#eee' }} />
             </IconButton>
           </div>
           <div className="navigation__right__profile">

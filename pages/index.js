@@ -12,13 +12,11 @@ function Home({ user }) {
         <title>My NextJS Template</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="main">
-        <div className="container__field">
-          {[1, 2, 3, 4, 5].map((item) => (
-            <FieldCard />
-          ))}
-        </div>
-      </main>
+      <div className="container__field">
+        {[1, 2, 3, 4, 5].map((item) => (
+          <FieldCard />
+        ))}
+      </div>
     </div>
   );
 }
@@ -33,7 +31,7 @@ Home.getInitialProps = async (ctx) => {
       ctx.res.end();
     }
   } else {
-    ctx.res.writeHead(302, { Location: '/login' });
+    ctx.res.writeHead(302, { location: '/login' });
     ctx.res.end();
   }
   return {};
