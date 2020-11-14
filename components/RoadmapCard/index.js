@@ -36,6 +36,7 @@ export default function RoadmapCard({
   author,
   descAuthor,
   rating,
+  isRegistered,
   id,
 }) {
   useEffect(() => {
@@ -91,7 +92,11 @@ export default function RoadmapCard({
           <div className={classes.paper}>
             <div className="roadmap-card__modal">
               <div className="roadmap-card__modal__left">
-                <Roadmap initialElements={initialElements} roadmapId={id} />
+                <Roadmap
+                  initialElements={initialElements}
+                  roadmapId={id}
+                  isRegistered={isRegistered}
+                />
               </div>
               <div className="roadmap-card__modal__right">
                 <Profile />

@@ -30,6 +30,7 @@ function ScreenProfile({ firstName, lastName, registeredRoadmap }) {
           <Carousel animation="slide" autoPlay={false} navButtonsAlwaysVisible>
             {registeredRoadmap.map((item) => (
               <RoadmapCard
+                isRegistered={true}
                 img={temp.img}
                 title={item.name}
                 descAuthor={temp.descAuthor}

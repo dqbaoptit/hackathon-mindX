@@ -45,6 +45,7 @@ const OverviewFlow = ({
   initialElements,
   setElements,
   roadmapId,
+  isRegistered,
 }) => {
   const [roadmap, setRoadmap] = useState({});
   const [filterNode, setFilterNode] = useState([...initialElements]);
@@ -57,9 +58,9 @@ const OverviewFlow = ({
     getRoadmap();
   }, []);
 
-  const [mapDone, setMapDone] = useState(false);
+  const [mapDone, setMapDone] = useState(isRegistered ? false : true);
   useEffect(() => {
-    if (roadmap.finished) {
+    if (roadmap.finished && isRegistered) {
       Object.keys(filterNode).map((item) => {
         if (
           roadmap &&
@@ -113,11 +114,15 @@ const OverviewFlow = ({
     <>
       {mapDone ? (
         <ReactFlow
-          elements={filterNode}
-          onElementClick={(e, els) => {
-            handleOpen();
-            setNodeId(els?.id);
-          }}
+          elements={isRegistered ? filterNode : initialElements}
+          onElementClick={
+            isRegistered
+              ? (e, els) => {
+                  handleOpen();
+                  setNodeId(els?.id);
+                }
+              : () => {}
+          }
           connectionLineComponent={Line}
           onConnect={onConnect}
           onLoad={onLoad}
