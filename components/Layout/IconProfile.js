@@ -5,6 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import { useRouter } from 'next/router';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 export default function Button() {
   const router = useRouter();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -22,7 +23,7 @@ export default function Button() {
   return (
     <>
       <IconButton onClick={handleClick}>
-        <AccountIcon style={{ fontSize: '2rem', color: '#2c67be' }} />
+        <MoreHorizIcon style={{ fontSize: '2rem', color: '#2c67be' }} />
       </IconButton>
       <Popover
         id={id}
@@ -39,21 +40,6 @@ export default function Button() {
         }}
       >
         <div style={{ width: '10rem' }}>
-          <MenuItem
-            onClick={() => {
-              router.push('/profile');
-              handleClose();
-            }}
-            style={{
-              height: '4rem',
-              display: 'flex',
-              justifyContent: 'space-around',
-
-              alignItems: 'center',
-            }}
-          >
-            <AccountCircleIcon /> Profile
-          </MenuItem>
           <MenuItem
             onClick={() => {
               router.push('/logout');

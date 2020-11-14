@@ -37,10 +37,9 @@
   }
   &__content {
     display: flex;
-    background-image: url('/code.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
     height: 11rem;
 
     border-radius: 10px;
@@ -74,7 +73,7 @@
 
     h3 {
       margin: 0;
-      font-size: 2rem;
+      font-size: 1.4rem;
       color: var(--text-title);
     }
   }

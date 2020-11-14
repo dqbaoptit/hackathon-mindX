@@ -7,6 +7,7 @@ import { isAuthenticated } from '../utils/middleware';
 import React, { useEffect, useState } from 'react';
 import { ScreenProfile } from '../components';
 import { GetProfile } from '../redux/actions/profile';
+import { Grid } from '@material-ui/core';
 
 function Profile() {
   const [user, setUser] = useState({});
@@ -25,6 +26,34 @@ function Profile() {
     </div>
   );
 }
+
+const items = [
+  {
+    title: 'Digital Marketing',
+    slug: 'marketing',
+    desc:
+      'Thời đại 4.0 đi cùng các lĩnh vực kinh tế, thúc đẩy sự phát triển của xã hội.',
+  },
+  {
+    title: 'An toàn thông tin',
+    slug: 'sercurity',
+
+    desc:
+      'Thời đại 4.0 đi cùng các lĩnh vực kinh tế, thúc đẩy sự phát triển của xã hội.',
+  },
+  {
+    title: 'Công nghệ thông tin',
+    slug: 'infomation',
+    desc:
+      'Thời đại 4.0 đi cùng các lĩnh vực kinh tế, thúc đẩy sự phát triển của xã hội.',
+  },
+  {
+    title: 'Photography',
+    slug: 'photograhy',
+    desc:
+      'Thời đại 4.0 đi cùng các lĩnh vực kinh tế, thúc đẩy sự phát triển của xã hội.',
+  },
+];
 function Home({ user }) {
   return (
     <>
@@ -32,9 +61,13 @@ function Home({ user }) {
       <hr />
       <div className="container">
         <div className="container__field">
-          {[1, 2, 3, 4, 5].map((item) => (
-            <FieldCard />
-          ))}
+          <Grid container>
+            {items.map((item) => (
+              <Grid item xs={12} sm="auto">
+                <FieldCard title={item.title} desc={item.desc} />
+              </Grid>
+            ))}
+          </Grid>
         </div>
       </div>
     </>

@@ -25,7 +25,6 @@ function ScreenProfile({ firstName, lastName }) {
         <div className="profile__info__name">
           <h1>{firstName + ' ' + lastName}</h1>
         </div>
-        <h2>Your group: </h2>
         <div className="profile__info__group">
           <Carousel animation="slide" autoPlay={false} navButtonsAlwaysVisible>
             {[1, 1, 1].map((item) => (
