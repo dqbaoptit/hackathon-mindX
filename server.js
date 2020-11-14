@@ -1,7 +1,7 @@
 const express = require('express');
 const next = require('next');
 const cookieParser = require('cookie-parser');
-
+const fs = require('fs');
 const port = parseInt(process.env.PORT, 10) || 6969;
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
