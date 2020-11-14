@@ -66,9 +66,6 @@ const Signup = () => {
   };
   return (
     <>
-      <Head>
-        <title>Sign up | ITMC</title>
-      </Head>
       <div className="form--container" align="center">
         <div align="center" className="form">
           <motion.div
@@ -80,7 +77,7 @@ const Signup = () => {
             style={{ cursor: 'pointer' }}
             className="form__title"
           >
-            <img src="/logoitmc.png" className="img-responsive" alt="" />
+            <img src="/logo.png" className="img-responsive" alt="" />
           </motion.div>
           <motion.p
             animate={{ y: 0, opacity: 1 }}

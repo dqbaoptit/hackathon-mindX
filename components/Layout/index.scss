@@ -1,11 +1,19 @@
 .navigation {
+  z-index: 696969;
   padding: 1rem;
-  max-height: 4rem;
+  max-height: 5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   border-bottom: 1px solid #eee;
+  background: var(--background-strong);
+
+  &__logo {
+    height: 6rem;
+    width: 6rem;
+    padding: 1rem;
+  }
   &__right {
     display: flex;
     justify-content: space-between;

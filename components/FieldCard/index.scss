@@ -1,24 +1,37 @@
 .ctn {
+  position: relative;
   display: flex;
   flex-direction: column;
   margin: 1rem;
   padding: 1.5rem;
-
+  padding-bottom: 4rem;
   width: 27rem;
   text-align: left;
   color: inherit;
   text-decoration: none;
 
+  cursor: pointer;
   border: 1px solid #eaeaea;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
 
+  background: rgba(238, 238, 238, 0.5);
+
+  @media (max-width: 800px) {
+    width: 90%;
+  }
+
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.01);
+  }
   &__content {
     display: flex;
 
     &__logo {
-      border-radius: 50px;
-      height: fit-content;
+      border-radius: 100%;
+      height: 5rem;
+      width: 5rem;
       padding: 1rem;
       border: 1px solid black;
     }
@@ -43,43 +56,53 @@
   &__info {
     display: flex;
     justify-content: space-around;
-
+    background: var(--background);
+    position: absolute;
+    bottom: 0;
+    height: 4rem;
+    left: 0;
+    width: 100%;
+    border-radius: 0px 0px 10px 10px;
     &__class {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-direction: column;
       span {
         font-size: 1rem;
-        color: #9ea7b3;
+        color: #ffb400;
+        font-weight: bold;
       }
 
       p {
         margin: 0;
         font-weight: bold;
         font-size: 1.75em;
-        color: #1fbba6;
+        color: #fff;
       }
     }
   }
 }
 
-.hr {
-  border: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  width: 100%;
-}
-
 .btn-primary {
-  background-color: #1abc9c;
-  padding: 0.5rem;
+  outline: none;
+  background-color: var(--background);
   border: 0;
   border-radius: 50px;
-  margin-left: 1rem;
-
-  width: 7rem;
+  padding: 1rem 2rem;
   height: 3rem;
   font-size: 1rem;
   color: #eaeaea;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &:hover {
-    background-color: #17a68a;
+    border: 1px solid var(--background);
+    background-color: #fff;
+    color: var(--background);
   }
 }

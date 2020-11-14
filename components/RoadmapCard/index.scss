@@ -1,13 +1,14 @@
 .roadmap-card {
   cursor: pointer;
   margin: 1rem 2rem;
-  padding: 1rem 2rem;
+  padding: 1rem;
   border-radius: 20px;
   border: 1px solid #eee;
   position: relative;
   width: 25rem;
-  height: 20rem;
+  height: 21rem;
 
+  background: rgba(238, 238, 238, 0.5);
   display: flex;
   justify-content: space-between;
 
@@ -21,7 +22,7 @@
       height: 8rem;
       width: 8rem;
       border-radius: 100%;
-      border: 1px solid #eee;
+      border: 1px solid #222;
     }
   }
   &__right {
