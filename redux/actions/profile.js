@@ -8,3 +8,21 @@ export const GetProfile = async () => {
       throw err;
     }
   };
+
+  export const UpdateProfile = async (params) => {
+    try {
+      const { data } = await Api.put('/user/profile', params);
+      return data;
+    } catch (err) {
+      throw err;
+    }
+  };
+
+  export const ChangePassword = async (params) => {
+    try {
+      const { data } = await Api.post('/user/change-password', params);
+      return data;
+    } catch (err) { 
+      throw err;
+    }
+  };
