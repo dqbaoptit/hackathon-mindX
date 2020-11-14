@@ -1,0 +1,38 @@
+.ctn {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  width: 80%;
+  height: 70%;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    align-items: center;
+
+    &__info {
+      align-items: center;
+
+      h2 {
+        align-self: flex-start;
+      }
+    }
+  }
+
+  &__img {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    border: 1px solid;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    margin: 0 2rem;
+
+    &__group {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}

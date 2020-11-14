@@ -5,7 +5,8 @@ import RoadmapCard from './RoadmapCard';
 import Layout from './Layout';
 import FieldCard from './FieldCard';
 import Roadmap from './Roadmap';
+import ScreenProfile from './ScreenProfile';
 
-export {  Card, Layout, RoadmapCard, FieldCard, Roadmap };
+export {  Card, Layout, RoadmapCard, FieldCard, Roadmap, ScreenProfile };
 
 
