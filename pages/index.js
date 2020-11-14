@@ -34,6 +34,7 @@ const items = [
     img: '/vercel.svg',
     desc:
       'Thời đại 4.0 đi cùng các lĩnh vực kinh tế, thúc đẩy sự phát triển của xã hội.',
+    img: '/digital-marketing.jpg',
   },
   {
     title: 'An toàn thông tin',
@@ -42,6 +43,7 @@ const items = [
 
     desc:
       'Thời đại 4.0 đi cùng các lĩnh vực kinh tế, thúc đẩy sự phát triển của xã hội.',
+    img: '/security.jpg',
   },
   {
     title: 'Công nghệ thông tin',
@@ -50,6 +52,7 @@ const items = [
     slug: 'infomation',
     desc:
       'Thời đại 4.0 đi cùng các lĩnh vực kinh tế, thúc đẩy sự phát triển của xã hội.',
+    img: '/It.jpg',
   },
   {
     title: 'Photography',
@@ -58,6 +61,7 @@ const items = [
     slug: 'photograhy',
     desc:
       'Thời đại 4.0 đi cùng các lĩnh vực kinh tế, thúc đẩy sự phát triển của xã hội.',
+    img: '/photography.jpg',
   },
 ];
 function Home({ user }) {
