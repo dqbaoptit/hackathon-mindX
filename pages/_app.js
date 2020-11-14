@@ -15,7 +15,9 @@ function MyApp({ Component, pageProps, user }) {
           <Component {...pageProps} />
         </Layout>
       ) : (
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       )}
     </Provider>
   );

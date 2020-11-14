@@ -1,4 +1,3 @@
-@import '~antd/dist/antd.css';
 html,
 body {
   padding: 0;
@@ -81,6 +80,7 @@ a {
   --text-desc: #5878e0;
   --background: #2c67be;
   --background-light: #edf6f9;
+  --border-solid-room: rgba(0, 0, 0, 0.1);
   --gray: rgb(199, 198, 198);
   --node: yellow;
   --root: rgb(160, 7, 145);

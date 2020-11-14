@@ -1,8 +1,9 @@
 .messenger-wrapper {
   overflow-y: hidden;
   height: 100vh;
+  width: 100vw;
 
   &__row-messenger {
-    border-top: 1px solid #f0365b;
+    border-top: 1px solid var(--border-solid-room);
   }
 }

@@ -14,10 +14,10 @@ const Messenger = () => {
     <div className="messenger-wrapper">
       {/* <Header /> */}
       <Row className="messenger-wrapper__row-messenger">
-        <Col span={6} className="messenger-wrapper__bg-conversations">
+        <Col span={5} className="messenger-wrapper__bg-conversations">
           <Conversations />
         </Col>
-        <Col span={18} className="messenger-wrapper__bg-messages">
+        <Col span={19} className="messenger-wrapper__bg-messages">
           <Messegas />
         </Col>
       </Row>
