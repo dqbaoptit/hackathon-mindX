@@ -19,8 +19,6 @@ const onLoad = (reactFlowInstance) => {
   reactFlowInstance.fitView();
 };
 const OverviewFlow = ({ contributing, initialElements, setElements }) => {
-  const onElementsRemove = (elementsToRemove) =>
-    setElements((els) => removeElements(elementsToRemove, els));
   const onConnect = (params) => setElements((els) => addEdge(params, els));
 
   return (
@@ -30,7 +28,6 @@ const OverviewFlow = ({ contributing, initialElements, setElements }) => {
       connectionLineComponent={Line}
       onConnect={onConnect}
       onLoad={onLoad}
-      onElementsRemove={onElementsRemove}
     >
       <NodesDebugger />
       {contributing && (
