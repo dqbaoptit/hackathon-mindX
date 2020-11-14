@@ -31,21 +31,21 @@ const items = [
   {
     title: 'Digital Marketing',
     slug: 'marketing',
-    img: '/vercel',
+    img: '/vercel.svg',
     desc:
       'Thời đại 4.0 đi cùng các lĩnh vực kinh tế, thúc đẩy sự phát triển của xã hội.',
   },
   {
     title: 'An toàn thông tin',
     slug: 'sercurity',
-    img: '/vercel',
+    img: '/vercel.svg',
 
     desc:
       'Thời đại 4.0 đi cùng các lĩnh vực kinh tế, thúc đẩy sự phát triển của xã hội.',
   },
   {
     title: 'Công nghệ thông tin',
-    img: '/vercel',
+    img: '/vercel.svg',
 
     slug: 'infomation',
     desc:
@@ -53,7 +53,7 @@ const items = [
   },
   {
     title: 'Photography',
-    img: '/vercel',
+    img: '/vercel.svg',
 
     slug: 'photograhy',
     desc:

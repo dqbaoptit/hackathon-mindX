@@ -1,16 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import ComputerIcon from '@material-ui/icons/Computer';
 import { useRouter } from 'next/router';
 import './index.scss';
-
-FieldCard.propTypes = {};
 
 function FieldCard({ title, desc, img, slug }) {
   const router = useRouter();
   return (
     <div className="ctn">
-      <div className="ctn__content" style={{ background: `"url(${img})"` }}>
+      <div
+        className="ctn__content"
+        style={{ background: `"url('${img}')" !important` }}
+      >
         <div className="ctn__content__intro">
           <p>{desc}</p>
         </div>
