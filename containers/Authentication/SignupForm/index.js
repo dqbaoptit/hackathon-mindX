@@ -54,7 +54,7 @@ const Signup = () => {
           text: 'Đăng ký thành công ! ',
           icon: 'success',
         });
-        setTimeout(() => router.push('/'), 500);
+        setTimeout(() => router.push('/login'), 500);
       })
       .catch((err) =>
         swal({

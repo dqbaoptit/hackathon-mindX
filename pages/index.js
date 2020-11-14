@@ -1,23 +1,110 @@
 import Head from 'next/head';
+import { useRouter } from 'next/router';
+
 import '../styles/Home.module.scss';
 import { FieldCard } from '../components';
 import { getCookie } from '../utils/cookie';
 import { localStorageConstant } from '../redux/constants';
 import { isAuthenticated } from '../utils/middleware';
+import React, { useEffect, useState } from 'react';
+import { ScreenProfile } from '../components';
+import { GetProfile, GetRegisteredRoadmaps } from '../redux/actions/profile';
+import { Grid } from '@material-ui/core';
 
-function Home({ user }) {
+function Profile() {
+  const [user, setUser] = useState({});
+  const [listRoadmaps, setListRoadmaps] = useState([]);
+
+  useEffect(() => {
+    async function getProfile() {
+      const { data } = await GetProfile();
+      setUser(data);
+    }
+    async function listRoadmaps() {
+      const { data } = await GetRegisteredRoadmaps();
+      setListRoadmaps([...data]);
+    }
+    listRoadmaps();
+    getProfile();
+  }, []);
+
   return (
-    <div className="container">
-      <Head>
-        <title>My NextJS Template</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <div className="container__field">
-        {[1, 2, 3, 4, 5].map((item) => (
-          <FieldCard />
-        ))}
-      </div>
+    <div style={{ display: 'flex' }}>
+      <ScreenProfile
+        firstName={user.firstName}
+        lastName={user.lastName}
+        registeredRoadmap={[...listRoadmaps]}
+      />
     </div>
+  );
+}
+
+const items = [
+  {
+    title: 'Digital Marketing',
+    slug: 'marketing',
+    img: '/vercel.svg',
+    desc:
+      'Thời đại 4.0 đi cùng các lĩnh vực kinh tế, thúc đẩy sự phát triển của xã hội.',
+    img: '/digital-marketing.jpg',
+  },
+  {
+    title: 'An toàn thông tin',
+    slug: 'sercurity',
+    img: '/vercel.svg',
+
+    desc:
+      'Thời đại 4.0 đi cùng các lĩnh vực kinh tế, thúc đẩy sự phát triển của xã hội.',
+    img: '/security.jpg',
+  },
+  {
+    title: 'Công nghệ thông tin',
+    img: '/vercel.svg',
+
+    slug: 'infomation',
+    desc:
+      'Thời đại 4.0 đi cùng các lĩnh vực kinh tế, thúc đẩy sự phát triển của xã hội.',
+    img: '/It.jpg',
+  },
+  {
+    title: 'Photography',
+    img: '/vercel.svg',
+
+    slug: 'photograhy',
+    desc:
+      'Thời đại 4.0 đi cùng các lĩnh vực kinh tế, thúc đẩy sự phát triển của xã hội.',
+    img: '/photography.jpg',
+  },
+];
+function Home({ user }) {
+  const router = useRouter();
+  useEffect(() => {
+    if (!user) {
+      router.push('/login');
+    }
+  }, []);
+
+  return (
+    <>
+      <Profile />
+      <hr />
+      <div className="container">
+        <div className="container__field">
+          <Grid container>
+            {items.map((item) => (
+              <Grid item xs={12} sm="auto">
+                <FieldCard
+                  title={item.title}
+                  desc={item.desc}
+                  slug={item.slug}
+                  img={item.img}
+                />
+              </Grid>
+            ))}
+          </Grid>
+        </div>
+      </div>
+    </>
   );
 }
 Home.getInitialProps = async (ctx) => {
@@ -30,10 +117,8 @@ Home.getInitialProps = async (ctx) => {
       ctx.res.writeHead(302, { Location: '/login' });
       ctx.res.end();
     }
-  } else {
-    ctx.res.writeHead(302, { location: '/login' });
-    ctx.res.end();
   }
   return {};
 };
+
 export default Home;

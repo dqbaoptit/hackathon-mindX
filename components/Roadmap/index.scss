@@ -17,3 +17,24 @@
   background: var(--node);
   color: var(--text-title);
 }
+.reactflow-wrapper {
+  z-index: 60696979;
+  min-height: 60vh;
+  min-width: 60vw;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 0.5rem 2rem;
+  border-radius: 20px;
+  background: var(--background);
+  border: 1px solid var(--background);
+
+  color: #fff;
+
+  &--deactive {
+    border: 1px solid var(--background);
+    background: #fff;
+    color: var(--background);
+  }
+}

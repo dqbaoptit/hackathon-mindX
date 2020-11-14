@@ -1,10 +1,10 @@
 import React from 'react';
 export default [
   {
-    id: '1',
+    id: '5fafabac610bee0017eba0da',
     type: 'input',
     data: {
-      label: <>Welcome to React Flow!</>,
+      label: <>Frontend</>,
     },
     position: { x: 250, y: 0 },
     style: {
@@ -16,11 +16,11 @@ export default [
     },
   },
   {
-    id: '2',
+    id: '5fafabd1610bee0017eba0de',
     data: {
-      label: <>This is a default node</>,
+      label: <>Internet</>,
     },
-    position: { x: 100, y: 100 },
+    position: { x: 247, y: 102 },
     style: {
       background: 'yellow',
       color: '#000',
@@ -30,11 +30,11 @@ export default [
     },
   },
   {
-    id: '3',
+    id: '5fafac07610bee0017eba0e4',
     data: {
-      label: <>This one has a custom style</>,
+      label: <>HTML</>,
     },
-    position: { x: 400, y: 100 },
+    position: { x: 493, y: 205 },
     style: {
       background: 'yellow',
       color: '#000',
@@ -44,10 +44,10 @@ export default [
     },
   },
   {
-    id: '4',
-    position: { x: 250, y: 200 },
+    id: '5fafabe0610bee0017eba0e0',
+    position: { x: 48, y: 193 },
     data: {
-      label: 'Another default node',
+      label: <>JS</>,
     },
     style: {
       background: 'yellow',
@@ -58,9 +58,9 @@ export default [
     },
   },
   {
-    id: '5',
+    id: '5fafabf4610bee0017eba0e2',
     data: {
-      label: 'Node id: 5',
+      label: <>CSS</>,
     },
     style: {
       background: 'yellow',
@@ -69,13 +69,13 @@ export default [
       width: 180,
       fontWeight: 'bold',
     },
-    position: { x: 250, y: 325 },
+    position: { x: 265, y: 195 },
   },
   {
-    id: '6',
+    id: '5fafac39610bee0017eba0e8',
     type: 'output',
     data: {
-      label: <>An output node</>,
+      label: <>Learn the basic</>,
     },
     style: {
       background: 'yellow',
@@ -84,10 +84,10 @@ export default [
       width: 180,
       fontWeight: 'bold',
     },
-    position: { x: 100, y: 480 },
+    position: { x: 148, y: 384 },
   },
   {
-    id: '7',
+    id: '5fafac56610bee0017eba0ea',
     type: 'output',
     style: {
       background: 'yellow',
@@ -96,33 +96,70 @@ export default [
       width: 180,
       fontWeight: 'bold',
     },
-    data: { label: 'Another output node' },
-    position: { x: 400, y: 450 },
+    data: { label: <>Making layout</> },
+    position: { x: 381, y: 389 },
   },
-  { id: 'e1-2', source: '1', target: '2', animated: true },
-  { id: 'e1-3', source: '1', target: '3', animated: true },
   {
-    id: 'e3-4',
-    source: '3',
-    target: '4',
+    id: '5fafac22610bee0017eba0e6',
+    type: 'output',
+    style: {
+      background: 'yellow',
+      color: '#000',
+      border: '1px solid #222138',
+      width: 180,
+      fontWeight: 'bold',
+    },
+    data: { label: <>Learn Basic HTML </> },
+    position: { x: 507, y: 303 },
+  },
+  {
+    id: 'e1-2',
+    source: '5fafabac610bee0017eba0da',
+    target: '5fafabd1610bee0017eba0de',
     animated: true,
   },
   {
-    id: 'e4-5',
-    source: '4',
-    target: '5',
+    id: 'e5fafabd1610bee0017eba0de-5fafac07610bee0017eba0e4__2',
+    source: '5fafabd1610bee0017eba0de',
+    target: '5fafac07610bee0017eba0e4',
     animated: true,
   },
   {
-    id: 'e5-6',
-    source: '5',
-    target: '6',
+    id: 'e5fafabd1610bee0017eba0de-5fafac07610bee0017eba0e4',
+    source: '5fafabd1610bee0017eba0de',
+    target: '5fafac07610bee0017eba0e4',
     animated: true,
   },
   {
-    id: 'e5-7',
-    source: '5',
-    target: '7',
+    id: 'e5fafabd1610bee0017eba0de-5fafabe0610bee0017eba0e0',
+    source: '5fafabd1610bee0017eba0de',
+    target: '5fafabe0610bee0017eba0e0',
+    animated: true,
+  },
+  {
+    id: 'e5fafabd1610bee0017eba0de-5fafabf4610bee0017eba0e2',
+    source: '5fafabd1610bee0017eba0de',
+    target: '5fafabf4610bee0017eba0e2',
+    animated: true,
+  },
+  {
+    id: 'e5fafabf4610bee0017eba0e2-5fafac39610bee0017eba0e8',
+    source: '5fafabf4610bee0017eba0e2',
+    target: '5fafac39610bee0017eba0e8',
+    animated: true,
+  },
+  {
+    id: 'e5fafabf4610bee0017eba0e2-5fafac56610bee0017eba0ea',
+    source: '5fafabf4610bee0017eba0e2',
+    target: '5fafac56610bee0017eba0ea',
+    style: { stroke: '#f6ab6c' },
+    animated: true,
+    labelStyle: { fill: '#f6ab6c', fontWeight: 700 },
+  },
+  {
+    id: 'e5fafac07610bee0017eba0e4-5fafac22610bee0017eba0e6',
+    source: '5fafac07610bee0017eba0e4',
+    target: '5fafac22610bee0017eba0e6',
     style: { stroke: '#f6ab6c' },
     animated: true,
     labelStyle: { fill: '#f6ab6c', fontWeight: 700 },

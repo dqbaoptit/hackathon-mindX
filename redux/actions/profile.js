@@ -36,31 +36,39 @@ export const GetRegisteredRoadmaps = async () => {
     throw err;
   }
 };
-
-export const RegisterRoadmap = async (roadmapId) => {
+export const GetRegisteredRoadmapById = async (id) => {
   try {
-    const { data } = await Api.post('/user/registered-roadmaps', { roadmapId });
+    const { data } = await Api.get(`/user/registered-roadmaps/${id}`);
     return data;
   } catch (err) {
     throw err;
   }
 };
 
-// export const GetProgress = async (roadmapId) => {
-//   try {
-//     const { data } = await Api.get(/user/registered-roadmaps/${roadmapId});
-//     return data;
-//   } catch (err) {
-//     throw err;
-//   }
-// };
-// export const MarkANode = async (roadmapId, finishedNodeId) => {
-//   try {
-//     const { data } = await Api.put(/user/registered-roadmaps/${roadmapId}, {
-//       finishedNodeId,
-//     });
-//     return data;
-//   } catch (err) {
-//     throw err;
-//   }
-// };
+export const RegisterRoadmap = async (roadmapId) => {
+  try {
+    const { data } = await Api.post(`/user/registered-roadmaps`, { roadmapId });
+    return data;
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const GetProgress = async (roadmapId) => {
+  try {
+    const { data } = await Api.get(`/user/registered-roadmaps/${roadmapId}`);
+    return data;
+  } catch (err) {
+    throw err;
+  }
+};
+export const MarkANode = async (roadmapId, finishedNodeId) => {
+  try {
+    const { data } = await Api.put(`/user/registered-roadmaps/${roadmapId}`, {
+      finishedNodeId,
+    });
+    return data;
+  } catch (err) {
+    throw err;
+  }
+};

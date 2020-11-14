@@ -5,6 +5,8 @@ import { FieldCard } from '../components';
 import { getCookie } from '../utils/cookie';
 import { localStorageConstant } from '../redux/constants';
 import { isAuthenticated } from '../utils/middleware';
+import { useState, useEffect } from 'react';
+import { ListRoadmaps } from '../redux/actions/roadmap';
 
 const temp = {
   title: 'Lộ trình Frontend',
@@ -14,19 +16,34 @@ const temp = {
   description:
     'Lorem ipsum dolor sit.  magni corporis dignissimos sed atque reiciendis dolorum laboriosam sint consequuntur, architecto, nulla voluptate, harum ducimus. Doloribus.',
 };
+
 function FieldContainer() {
+  const [listRoadmaps, setListRoadmaps] = useState([]);
+  useEffect(() => {
+    async function listRoadmaps() {
+      const { data } = await ListRoadmaps();
+      setListRoadmaps([...data]);
+    }
+    listRoadmaps();
+  }, []);
   return (
     <div style={{ padding: '2rem 0rem' }}>
-      <FieldCard />
+      <FieldCard
+        title="Marketing"
+        desc="Thời đại 4.0 đi cùng các lĩnh vực kinh tế, thúc đẩy sự phát triển của xã hội."
+        img="/photography.jpg"
+      />
       <hr />
       <div className="field">
-        {[1, 2, 3, 1, 1, 1].map((item) => (
+        {listRoadmaps.map((item) => (
           <RoadmapCard
             img={temp.img}
-            title={temp.title}
+            title={item.name}
             descAuthor={temp.descAuthor}
-            description={temp.description}
-            author={temp.author}
+            description={item.overview}
+            author={item.owner}
+            id={item._id}
+            isRegistered={false}
           />
         ))}
       </div>

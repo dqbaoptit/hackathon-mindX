@@ -1,27 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import ComputerIcon from '@material-ui/icons/Computer';
 import { useRouter } from 'next/router';
 import './index.scss';
 
-FieldCard.propTypes = {};
-
-function FieldCard() {
+function FieldCard({ title, desc, img, slug }) {
   const router = useRouter();
   return (
     <div className="ctn">
-      <div className="ctn__content">
-        <div className="ctn__content__logo">
-          <ComputerIcon fontSize="large" />
-        </div>
+      <div className="ctn__content" style={{ background: `url('${img}')` }}>
         <div className="ctn__content__intro">
-          <h3>Title</h3>
-          <p>
-            Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
-          </p>
+          <p>{desc}</p>
         </div>
       </div>
       <div
@@ -29,11 +16,17 @@ function FieldCard() {
           margin: '1rem',
           textAlign: 'right',
           display: 'flex',
-          justifyContent: 'flex-end',
+          justifyContent: 'space-between',
         }}
       >
-        <button className="btn-primary" onClick={() => router.push('/field')}>
-          Bắt đầu tìm hiểu
+        <div className="title">
+          <h3>{title}</h3>
+        </div>
+        <button
+          className="btn-primary"
+          onClick={() => router.push(`/field?slug=${slug}`)}
+        >
+          Roadmap
         </button>
       </div>
       <div className="ctn__info">
