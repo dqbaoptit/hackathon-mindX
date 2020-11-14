@@ -6,6 +6,7 @@ import ReactFlow, {
   Controls,
   Background,
 } from 'react-flow-renderer';
+
 const onLoad = (reactFlowInstance) => {
   reactFlowInstance.fitView();
 };
@@ -21,7 +22,6 @@ const OverviewFlow = ({ contributing, initialElements, setElements }) => {
       onLoad={onLoad}
       snapToGrid={true}
       snapGrid={[15, 15]}
-      draggable
     >
       {contributing && (
         <MiniMap
