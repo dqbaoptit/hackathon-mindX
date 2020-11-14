@@ -4,7 +4,7 @@ export default [
     id: '1',
     type: 'input',
     data: {
-      label: <>Welcome to React Flow!</>,
+      label: <>Frontend</>,
     },
     position: { x: 250, y: 0 },
     style: {
@@ -18,7 +18,7 @@ export default [
   {
     id: '2',
     data: {
-      label: <>This is a default node</>,
+      label: <>Internet</>,
     },
     position: { x: 100, y: 100 },
     style: {
@@ -32,7 +32,7 @@ export default [
   {
     id: '3',
     data: {
-      label: <>This one has a custom style</>,
+      label: <>HTML</>,
     },
     position: { x: 400, y: 100 },
     style: {
@@ -47,7 +47,7 @@ export default [
     id: '4',
     position: { x: 250, y: 200 },
     data: {
-      label: 'Another default node',
+      label: <>JS</>,
     },
     style: {
       background: 'yellow',
@@ -60,7 +60,7 @@ export default [
   {
     id: '5',
     data: {
-      label: 'Node id: 5',
+      label: <>CSS</>,
     },
     style: {
       background: 'yellow',
@@ -75,7 +75,7 @@ export default [
     id: '6',
     type: 'output',
     data: {
-      label: <>An output node</>,
+      label: <>Learn the basic</>,
     },
     style: {
       background: 'yellow',
@@ -96,20 +96,39 @@ export default [
       width: 180,
       fontWeight: 'bold',
     },
-    data: { label: 'Another output node' },
+    data: { label: <>Making layout</> },
+    position: { x: 400, y: 450 },
+  },
+  {
+    id: '8',
+    type: 'output',
+    style: {
+      background: 'yellow',
+      color: '#000',
+      border: '1px solid #222138',
+      width: 180,
+      fontWeight: 'bold',
+    },
+    data: { label: <>Learn Basic </> },
     position: { x: 400, y: 450 },
   },
   { id: 'e1-2', source: '1', target: '2', animated: true },
-  { id: 'e1-3', source: '1', target: '3', animated: true },
+  { id: 'e2-3', source: '2', target: '3', animated: true },
   {
-    id: 'e3-4',
-    source: '3',
+    id: 'e2-3',
+    source: '2',
+    target: '3',
+    animated: true,
+  },
+  {
+    id: 'e2-4',
+    source: '2',
     target: '4',
     animated: true,
   },
   {
-    id: 'e4-5',
-    source: '4',
+    id: 'e2-5',
+    source: '2',
     target: '5',
     animated: true,
   },
