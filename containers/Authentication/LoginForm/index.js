@@ -50,7 +50,7 @@ const LoginForm = () => {
             onClick={() => router.push('/')}
             style={{ cursor: 'pointer' }}
           >
-            <img src="/vercel.svg" className="img-responsive" alt="" />
+            <img src="/logo.png" className="img-responsive" alt="" />
           </motion.div>
           <motion.p
             animate={{ y: 0, opacity: 1 }}

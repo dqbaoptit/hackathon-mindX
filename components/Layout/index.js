@@ -6,7 +6,7 @@ export default function Layout({ children }) {
     <div className="layout">
       <div className="navigation">
         <div className="navigation__logo">
-          <img src="/vercel.svg" className="img-responsive" alt="" />
+          <img src="/logo.png" className="img-responsive" alt="" />
         </div>
         <div className="navigation__right">
           <div className="navigation__right__notification">
