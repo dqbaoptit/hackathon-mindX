@@ -4,20 +4,40 @@ import { FieldCard } from '../components';
 import { getCookie } from '../utils/cookie';
 import { localStorageConstant } from '../redux/constants';
 import { isAuthenticated } from '../utils/middleware';
+import React, { useEffect, useState } from 'react';
+import { ScreenProfile } from '../components';
+import { GetProfile } from '../redux/actions/profile';
 
+function Profile() {
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    async function getProfile() {
+      const { data } = await GetProfile();
+      setUser(data);
+      console.log(data);
+    }
+    getProfile();
+  }, []);
+
+  return (
+    <div style={{ display: 'flex' }}>
+      <ScreenProfile firstName={user.firstName} lastName={user.lastName} />
+    </div>
+  );
+}
 function Home({ user }) {
   return (
-    <div className="container">
-      <Head>
-        <title>My NextJS Template</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <div className="container__field">
-        {[1, 2, 3, 4, 5].map((item) => (
-          <FieldCard />
-        ))}
+    <>
+      <Profile />
+      <div className="container">
+        <div className="container__field">
+          {[1, 2, 3, 4, 5].map((item) => (
+            <FieldCard />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 Home.getInitialProps = async (ctx) => {
@@ -36,6 +56,5 @@ Home.getInitialProps = async (ctx) => {
   }
   return {};
 };
-
 
 export default Home;
