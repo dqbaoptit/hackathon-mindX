@@ -5,6 +5,7 @@ import { Modal, Backdrop, Fade } from '@material-ui/core';
 import Rating from '@material-ui/lab/Rating';
 
 import Profile from '../ContributorProfile';
+import initialElements from '../Roadmap/initial-elements';
 const Roadmap = dynamic(import('../Roadmap'), {
   ssr: false,
 });
@@ -81,7 +82,7 @@ export default function RoadmapCard({
           <div className={classes.paper}>
             <div className="roadmap-card__modal">
               <div className="roadmap-card__modal__left">
-                <Roadmap />
+                <Roadmap initialElements={initialElements} />
               </div>
               <div className="roadmap-card__modal__right">
                 <Profile />

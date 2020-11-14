@@ -37,7 +37,7 @@ const data = [
   },
 ];
 const Conversation = () => {
-  const [data, setData] = useState([]);
+  //   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
 

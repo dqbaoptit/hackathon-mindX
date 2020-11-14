@@ -2,9 +2,9 @@ import { Roadmap } from '../components';
 
 import '../styles/Contributor.module.scss';
 import { TextField } from '@material-ui/core';
-import initialElements from '../components/Roadmap/initial-elements';
 import { useState } from 'react';
 import { CreateNode } from '../redux/actions/node';
+import initialElements from '../components/Roadmap/initial-elements';
 
 export default function Page() {
   const [nodes, setNodes] = useState([...initialElements]);
@@ -26,7 +26,7 @@ export default function Page() {
       ...nodes,
       {
         id: data._id,
-        type: 'input output',
+        type: 'default',
         position: { x: 300, y: 200 },
         data: {
           label: `${detailNode.title}`,
@@ -41,7 +41,7 @@ export default function Page() {
       },
     ]);
   };
-  console.log(nodes);
+
   return (
     <div className="contributor">
       <div className="contributor__left">

@@ -1,11 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactFlow, {
   removeElements,
   addEdge,
   MiniMap,
   Controls,
   Background,
+  useStoreState,
 } from 'react-flow-renderer';
+import Line from './line';
+
+const NodesDebugger = ({}) => {
+  const nodes = useStoreState((state) => state.nodes);
+  console.log(nodes);
+  return null;
+};
+
 const onLoad = (reactFlowInstance) => {
   reactFlowInstance.fitView();
 };
@@ -13,16 +22,17 @@ const OverviewFlow = ({ contributing, initialElements, setElements }) => {
   const onElementsRemove = (elementsToRemove) =>
     setElements((els) => removeElements(elementsToRemove, els));
   const onConnect = (params) => setElements((els) => addEdge(params, els));
+
   return (
     <ReactFlow
       elements={initialElements}
-      onElementsRemove={onElementsRemove}
+      onElementClick={(e, els) => console.log(e, els)}
+      connectionLineComponent={Line}
       onConnect={onConnect}
       onLoad={onLoad}
-      snapToGrid={true}
-      snapGrid={[15, 15]}
-      draggable
+      onElementsRemove={onElementsRemove}
     >
+      <NodesDebugger />
       {contributing && (
         <MiniMap
           nodeStrokeColor={(n) => {
