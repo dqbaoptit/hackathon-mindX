@@ -1,8 +1,11 @@
 import Head from 'next/head';
 import '../styles/Home.module.scss';
 import { FieldCard } from '../components';
+import { getCookie } from '../utils/cookie';
+import { localStorageConstant } from '../redux/constants';
+import { isAuthenticated } from '../utils/middleware';
 
-export default function Home() {
+function Home({ user }) {
   return (
     <div className="container">
       <Head>
@@ -10,33 +13,29 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="main">
- 
-      <div className="container__field">
-        {[1, 2, 3, 4, 5].map((item) => (
-           <FieldCard />
-        ))}
-      </div>
-
-        <p className="description">This is my setup template &rarr;</p>
-
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-          <div className="card"></div>
+        <div className="container__field">
+          {[1, 2, 3, 4, 5].map((item) => (
+            <FieldCard />
+          ))}
         </div>
       </main>
-      <footer className="footer">
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-        </a>
-      </footer>
     </div>
   );
 }
+Home.getInitialProps = async (ctx) => {
+  const token = getCookie(localStorageConstant.ACCESS_TOKEN, ctx);
+  if (token) {
+    try {
+      const { data } = await isAuthenticated(ctx, token);
+      return { user: data };
+    } catch (err) {
+      ctx.res.writeHead(302, { Location: '/login' });
+      ctx.res.end();
+    }
+  } else {
+    ctx.res.writeHead(302, { Location: '/login' });
+    ctx.res.end();
+  }
+  return {};
+};
+export default Home;
