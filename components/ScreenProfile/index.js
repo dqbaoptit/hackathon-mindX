@@ -34,8 +34,8 @@ function ScreenProfile({ firstName, lastName, registeredRoadmap }) {
                 img={temp.img}
                 title={item.name}
                 descAuthor={temp.descAuthor}
-                description={temp.description}
-                author={temp.author}
+                description={item.overview}
+                author={item.owner}
                 id={item._id}
               />
             ))}

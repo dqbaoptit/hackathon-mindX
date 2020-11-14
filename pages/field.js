@@ -6,7 +6,7 @@ import { getCookie } from '../utils/cookie';
 import { localStorageConstant } from '../redux/constants';
 import { isAuthenticated } from '../utils/middleware';
 import { useState, useEffect } from 'react';
-import { GetRegisteredRoadmaps } from '../redux/actions/profile';
+import { ListRoadmaps } from '../redux/actions/roadmap';
 
 const temp = {
   title: 'Lộ trình Frontend',
@@ -21,7 +21,7 @@ function FieldContainer() {
   const [listRoadmaps, setListRoadmaps] = useState([]);
   useEffect(() => {
     async function listRoadmaps() {
-      const { data } = await GetRegisteredRoadmaps();
+      const { data } = await ListRoadmaps();
       setListRoadmaps([...data]);
     }
     listRoadmaps();
@@ -36,8 +36,8 @@ function FieldContainer() {
             img={temp.img}
             title={item.name}
             descAuthor={temp.descAuthor}
-            description={temp.description}
-            author={temp.author}
+            description={item.overview}
+            author={item.owner}
             id={item._id}
             isRegistered={false}
           />

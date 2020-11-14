@@ -55,7 +55,7 @@ const OverviewFlow = ({
       const { data } = await GetRegisteredRoadmapById(roadmapId);
       setRoadmap(data);
     }
-    getRoadmap();
+    if (isRegistered) getRoadmap();
   }, []);
 
   const [mapDone, setMapDone] = useState(isRegistered ? false : true);
