@@ -15,7 +15,6 @@ function Profile() {
     async function getProfile() {
       const { data } = await GetProfile();
       setUser(data);
-      console.log(data);
     }
     getProfile();
   }, []);
@@ -30,6 +29,7 @@ function Home({ user }) {
   return (
     <>
       <Profile />
+      <hr />
       <div className="container">
         <div className="container__field">
           {[1, 2, 3, 4, 5].map((item) => (

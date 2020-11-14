@@ -1,7 +1,7 @@
 import React from 'react';
 import RoadmapCard from '../RoadmapCard';
 import PersonIcon from '@material-ui/icons/Person';
-
+import Carousel from 'react-material-ui-carousel';
 import './index.scss';
 
 function ScreenProfile({ firstName, lastName }) {
@@ -27,15 +27,17 @@ function ScreenProfile({ firstName, lastName }) {
         </div>
         <h2>Your group: </h2>
         <div className="profile__info__group">
-          {[1, 1].map((item) => (
-            <RoadmapCard
-              img={temp.img}
-              title={temp.title}
-              descAuthor={temp.descAuthor}
-              description={temp.description}
-              author={temp.author}
-            />
-          ))}
+          <Carousel animation="slide" autoPlay={false} navButtonsAlwaysVisible>
+            {[1, 1, 1].map((item) => (
+              <RoadmapCard
+                img={temp.img}
+                title={temp.title}
+                descAuthor={temp.descAuthor}
+                description={temp.description}
+                author={temp.author}
+              />
+            ))}
+          </Carousel>
         </div>
       </div>
     </div>
