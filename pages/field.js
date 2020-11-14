@@ -16,16 +16,20 @@ const temp = {
 };
 function FieldContainer() {
   return (
-    <div className="field">
-      {[1, 2, 3, 1, 1, 1].map((item) => (
-        <RoadmapCard
-          img={temp.img}
-          title={temp.title}
-          descAuthor={temp.descAuthor}
-          description={temp.description}
-          author={temp.author}
-        />
-      ))}
+    <div style={{ padding: '2rem 0rem' }}>
+      <FieldCard />
+      <hr />
+      <div className="field">
+        {[1, 2, 3, 1, 1, 1].map((item) => (
+          <RoadmapCard
+            img={temp.img}
+            title={temp.title}
+            descAuthor={temp.descAuthor}
+            description={temp.description}
+            author={temp.author}
+          />
+        ))}
+      </div>
     </div>
   );
 }
