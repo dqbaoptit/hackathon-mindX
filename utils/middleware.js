@@ -11,3 +11,14 @@ export const isAuthenticated = async (ctx, token) => {
     throw error;
   }
 };
+
+export const GetRegisteredRoadmaps = async (ctx, token) => {
+  try {
+    const { data } = await axios.get(`${HOST}/user/registered-roadmaps`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};

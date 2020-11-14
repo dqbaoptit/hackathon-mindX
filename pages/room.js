@@ -4,26 +4,35 @@ import Room from '../containers/Room';
 import { FieldCard } from '../components';
 import { getCookie } from '../utils/cookie';
 import { localStorageConstant } from '../redux/constants';
-import { isAuthenticated } from '../utils/middleware';
+import { isAuthenticated, GetRegisteredRoadmaps } from '../utils/middleware';
 
-function Home() {
+import Get from 'lodash/get';
+
+function Home(props) {
   return (
-    <div className="container">
+    <>
       <Head>
         <title>My NextJS Template</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Room />
-    </div>
+      <Room {...props} />
+    </>
   );
 }
 Home.getInitialProps = async (ctx) => {
   const token = getCookie(localStorageConstant.ACCESS_TOKEN, ctx);
+  const roomId = Get(ctx, ['query', 'roomId']);
   if (token) {
     try {
       const { data } = await isAuthenticated(ctx, token);
-      return { user: data };
+      // const roadMaps = await GetRegisteredRoadmaps(ctx, token);
+      // if (!Get(roadMaps, [data]).length) {
+      //   ctx.res.writeHead(302, { Location: '/' });
+      //   ctx.res.end();
+      // }
+      return { user: data, roomId };
     } catch (err) {
+      console.log(err);
       ctx.res.writeHead(302, { Location: '/login' });
       ctx.res.end();
       console.log(err);

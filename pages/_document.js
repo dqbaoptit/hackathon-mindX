@@ -12,6 +12,7 @@ class MyDocument extends Document {
         <Head>
           <meta charSet="utf-8" />
           <meta name="theme-color" content={theme.palette.primary.main} />
+          <script src="https://cdn.stringee.com/sdk/web/2.2.1/stringee-web-sdk.min.js"></script>
         </Head>
         <body>
           <Main />
