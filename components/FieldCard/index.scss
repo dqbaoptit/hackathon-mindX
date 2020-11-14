@@ -13,6 +13,10 @@
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
 
+  @media (max-width: 800px) {
+    width: 90%;
+  }
+
   &__content {
     display: flex;
 
@@ -67,6 +71,7 @@
 }
 
 .btn-primary {
+  outline: none;
   background-color: #1abc9c;
   padding: 0.5rem;
   border: 0;
