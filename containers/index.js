@@ -1,3 +1,4 @@
-import Counter from './Counter';
+import Login from './Authentication/LoginForm';
+import Signup from './Authentication/SignupForm';
 
-export { Counter };
+export default { Login, Signup };

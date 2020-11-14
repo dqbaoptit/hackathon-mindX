@@ -1,8 +1,11 @@
+import dynamic from 'next/dynamic';
 import './index.scss';
 import { makeStyles } from '@material-ui/core/styles';
 import { Modal, Backdrop, Fade } from '@material-ui/core';
 import Profile from '../ContributorProfile';
-
+const Roadmap = dynamic(import('../Roadmap'), {
+  ssr: false,
+});
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: 'flex',
@@ -71,7 +74,9 @@ export default function RoadmapCard({
         <Fade in={open}>
           <div className={classes.paper}>
             <div className="roadmap-card__modal">
-              <div className="roadmap-card__modal__left"></div>
+              <div className="roadmap-card__modal__left">
+                <Roadmap />
+              </div>
               <div className="roadmap-card__modal__right">
                 <Profile />
               </div>

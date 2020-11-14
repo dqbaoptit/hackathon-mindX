@@ -12,7 +12,7 @@ const Messenger = () => {
 
   return (
     <div className="messenger-wrapper">
-      <Header />
+      {/* <Header /> */}
       <Row className="messenger-wrapper__row-messenger">
         <Col span={6} className="messenger-wrapper__bg-conversations">
           <Conversations />

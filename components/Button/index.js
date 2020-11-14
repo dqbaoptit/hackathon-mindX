@@ -1,9 +1,15 @@
-import './index.scss';
-const Button = ({ text, onClick }) => {
+import styles from './styles';
+
+const Button = ({ text, type, onClick }) => {
   return (
-    <div className="btn" onClick={onClick}>
-      {text}
-    </div>
+    <>
+      <div className={`button ${type}`} onClick={onClick}>
+        <span className="button__text"> {text} </span>
+      </div>
+      <style jsx global>
+        {styles}
+      </style>
+    </>
   );
 };
 export default Button;
