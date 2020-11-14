@@ -6,7 +6,7 @@ import Router from 'next/router';
 
 export const Login = async (params) => {
   try {
-    const { data } = await Api.post(authConstant.LOGIN, params);
+    const { data } = await Api.post('/auth/login', params);
     return data;
   } catch (err) {
     throw err;
@@ -60,7 +60,7 @@ export const deauthenticate = () => {
 //
 export const Register = async (params) => {
   try {
-    const { data } = await Api.post(authConstant.REGISTER, params);
+    const { data } = await Api.post('auth/signup', params);
     return data;
   } catch (err) {
     throw err;
@@ -93,6 +93,5 @@ export const ChangePassword = async (params) => {
 };
 export const handleAfterLogin = (data) => {
   setCookie(localStorageConstant.ACCESS_TOKEN, data.accessToken);
-  setCookie(localStorageConstant.REFRESH_TOKEN, data.refreshToken);
   Router.push('/');
 };

@@ -1,8 +1,11 @@
 import Head from 'next/head';
 import '../styles/Home.module.scss';
 import { FieldCard } from '../components';
+import { getCookie } from '../utils/cookie';
+import { localStorageConstant } from '../redux/constants';
+import { isAuthenticated } from '../utils/middleware';
 
-export default function Home() {
+function Home({ user }) {
   return (
     <div className="container">
       <Head>
@@ -19,3 +22,20 @@ export default function Home() {
     </div>
   );
 }
+Home.getInitialProps = async (ctx) => {
+  const token = getCookie(localStorageConstant.ACCESS_TOKEN, ctx);
+  if (token) {
+    try {
+      const { data } = await isAuthenticated(ctx, token);
+      return { user: data };
+    } catch (err) {
+      ctx.res.writeHead(302, { Location: '/login' });
+      ctx.res.end();
+    }
+  } else {
+    ctx.res.writeHead(302, { Location: '/login' });
+    ctx.res.end();
+  }
+  return {};
+};
+export default Home;

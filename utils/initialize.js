@@ -3,7 +3,7 @@ import { getCookie } from '../utils/cookie';
 import { localStorageConstant } from '../redux/constants';
 
 // checks if the page is being loaded on the server, and if so, get auth token from the cookie:
-export default async function (ctx) {
+export default async function Initialize(ctx) {
   if (ctx.req) {
     if (ctx.req.headers.cookie) {
       const token = ctx.req.headers.cookie

@@ -1,5 +1,3 @@
-import { useState } from 'react';
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { Login, handleAfterLogin } from '../../../redux/actions/auth';
 
