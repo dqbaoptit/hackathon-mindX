@@ -73,12 +73,14 @@ a {
   height: 100%;
   margin: 0;
 }
-
+.background {
+  background: var(--background);
+}
 :root {
   --text-title: #000;
-  --text-desc: red;
-  --background: #eee;
-  --background-light: #fff;
+  --text-desc: #5878e0;
+  --background: #2c67be;
+  --background-light: #edf6f9;
   --gray: rgb(199, 198, 198);
   --node: yellow;
   --root: rgb(160, 7, 145);
