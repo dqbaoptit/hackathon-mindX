@@ -7,6 +7,13 @@ export default [
       label: <>Welcome to React Flow!</>,
     },
     position: { x: 250, y: 0 },
+    style: {
+      background: '#3d1057',
+      color: '#fff',
+      border: '1px solid #222138',
+      width: 180,
+      fontWeight: 'bold',
+    },
   },
   {
     id: '2',
@@ -14,6 +21,13 @@ export default [
       label: <>This is a default node</>,
     },
     position: { x: 100, y: 100 },
+    style: {
+      background: 'yellow',
+      color: '#000',
+      border: '1px solid #222138',
+      width: 180,
+      fontWeight: 'bold',
+    },
   },
   {
     id: '3',
@@ -22,10 +36,11 @@ export default [
     },
     position: { x: 400, y: 100 },
     style: {
-      background: '#D6D5E6',
-      color: '#333',
+      background: 'yellow',
+      color: '#000',
       border: '1px solid #222138',
       width: 180,
+      fontWeight: 'bold',
     },
   },
   {
@@ -34,11 +49,25 @@ export default [
     data: {
       label: 'Another default node',
     },
+    style: {
+      background: 'yellow',
+      color: '#000',
+      border: '1px solid #222138',
+      width: 180,
+      fontWeight: 'bold',
+    },
   },
   {
     id: '5',
     data: {
       label: 'Node id: 5',
+    },
+    style: {
+      background: 'yellow',
+      color: '#000',
+      border: '1px solid #222138',
+      width: 180,
+      fontWeight: 'bold',
     },
     position: { x: 250, y: 325 },
   },
@@ -48,11 +77,25 @@ export default [
     data: {
       label: <>An output node</>,
     },
+    style: {
+      background: 'yellow',
+      color: '#000',
+      border: '1px solid #222138',
+      width: 180,
+      fontWeight: 'bold',
+    },
     position: { x: 100, y: 480 },
   },
   {
     id: '7',
     type: 'output',
+    style: {
+      background: 'yellow',
+      color: '#000',
+      border: '1px solid #222138',
+      width: 180,
+      fontWeight: 'bold',
+    },
     data: { label: 'Another output node' },
     position: { x: 400, y: 450 },
   },
