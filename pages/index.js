@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import { useRouter } from 'next/router';
+
 import '../styles/Home.module.scss';
 import { FieldCard } from '../components';
 import { getCookie } from '../utils/cookie';
@@ -75,6 +77,13 @@ const items = [
   },
 ];
 function Home({ user }) {
+  const router = useRouter();
+  useEffect(() => {
+    if (!user) {
+      router.push('/login');
+    }
+  }, []);
+
   return (
     <>
       <Profile />
@@ -108,9 +117,6 @@ Home.getInitialProps = async (ctx) => {
       ctx.res.writeHead(302, { Location: '/login' });
       ctx.res.end();
     }
-  } else {
-    ctx.res.writeHead(302, { location: '/login' });
-    ctx.res.end();
   }
   return {};
 };

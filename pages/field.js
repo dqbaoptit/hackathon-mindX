@@ -28,7 +28,11 @@ function FieldContainer() {
   }, []);
   return (
     <div style={{ padding: '2rem 0rem' }}>
-      <FieldCard />
+      <FieldCard
+        title="Marketing"
+        desc="Thời đại 4.0 đi cùng các lĩnh vực kinh tế, thúc đẩy sự phát triển của xã hội."
+        img="/photography.jpg"
+      />
       <hr />
       <div className="field">
         {listRoadmaps.map((item) => (

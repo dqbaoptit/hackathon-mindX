@@ -1,6 +1,6 @@
 .ctb-profile {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
 
@@ -19,6 +19,7 @@
     border: 1px solid #fff;
   }
   &__name {
+    margin: 3rem 0rem;
     font-size: 1.6rem;
   }
   &__experience {

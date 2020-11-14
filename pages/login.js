@@ -8,7 +8,6 @@ function LoginForm() {
   );
 }
 LoginForm.getInitialProps = async (ctx) => {
-  initialize(ctx);
   return {};
 };
 export default LoginForm;

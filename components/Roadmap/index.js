@@ -124,7 +124,6 @@ const OverviewFlow = ({
               : () => {}
           }
           connectionLineComponent={Line}
-          onConnect={onConnect}
           onLoad={onLoad}
         >
           <NodesDebugger />

@@ -9,7 +9,6 @@ function SignForm() {
   );
 }
 SignForm.getInitialProps = async (ctx) => {
-  initialize(ctx);
   return {};
 };
 export default SignForm;
