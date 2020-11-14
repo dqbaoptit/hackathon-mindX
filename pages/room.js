@@ -6,7 +6,7 @@ import { getCookie } from '../utils/cookie';
 import { localStorageConstant } from '../redux/constants';
 import { isAuthenticated } from '../utils/middleware';
 
-export default function Home() {
+function Home() {
   return (
     <div className="container">
       <Head>

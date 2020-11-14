@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ComputerIcon from '@material-ui/icons/Computer';
-
+import { useRouter } from 'next/router';
 import './index.scss';
 
 FieldCard.propTypes = {};
 
 function FieldCard() {
+  const router = useRouter();
   return (
     <div className="ctn">
       <div className="ctn__content">
@@ -31,7 +32,9 @@ function FieldCard() {
           justifyContent: 'flex-end',
         }}
       >
-        <button className="btn-primary">Bắt đầu tìm hiểu</button>
+        <button className="btn-primary" onClick={() => router.push('/field')}>
+          Bắt đầu tìm hiểu
+        </button>
       </div>
       <div className="ctn__info">
         <div className="ctn__info__class">
