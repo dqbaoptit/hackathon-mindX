@@ -17,7 +17,9 @@ module.exports = withSass({
         })
       );
     }
-
+    config.node = {
+      fs: 'empty',
+    };
     config.module.rules.push({
       test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif|otf)$/,
       use: {
