@@ -2,6 +2,8 @@ import dynamic from 'next/dynamic';
 import './index.scss';
 import { makeStyles } from '@material-ui/core/styles';
 import { Modal, Backdrop, Fade } from '@material-ui/core';
+import Rating from '@material-ui/lab/Rating';
+
 import Profile from '../ContributorProfile';
 const Roadmap = dynamic(import('../Roadmap'), {
   ssr: false,
@@ -47,17 +49,21 @@ export default function RoadmapCard({
     <>
       <div className="roadmap-card" onClick={handleOpen}>
         <div className="roadmap-card__left">
+          <h3>Contributor </h3>
+
           <div className="roadmap-card__left__img">
             <img src={img} alt="" className="img-responsive" />
           </div>
-          <div className="roadmap-card__left__desc">Contributor : {author}</div>
+          <div className="roadmap-card__left__desc">{author}</div>
           <div className="roadmap-card__left__desc">{descAuthor}</div>
         </div>
         <div className="roadmap-card__right">
           <div className="roadmap-card__right__title">{title}</div>
           <div className="roadmap-card__right__desc">{description}</div>
         </div>
-        <div className="roadmap-card__bottom">{/* rating here */}</div>
+        <div className="roadmap-card__bottom">
+          <Rating name="simple-controlled" value={4} readOnly />
+        </div>
       </div>
       <Modal
         aria-labelledby="transition-modal-title"

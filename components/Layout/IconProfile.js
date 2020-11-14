@@ -22,7 +22,7 @@ export default function Button() {
   return (
     <>
       <IconButton onClick={handleClick}>
-        <AccountIcon style={{ fontSize: '2rem', color: '#eee' }} />
+        <AccountIcon style={{ fontSize: '2rem', color: '#2c67be' }} />
       </IconButton>
       <Popover
         id={id}

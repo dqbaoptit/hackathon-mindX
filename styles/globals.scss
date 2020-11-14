@@ -3,8 +3,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: gt-super, Georgia, Cambria, 'Times New Roman', Times, serif !important;
-  background: var(--background) !important;
+  font-family: gt-super, Georgia, Cambria, 'Times New Roman', Times, serif;
 }
 
 a {
@@ -79,9 +78,8 @@ a {
 }
 :root {
   --text-title: #000;
-  --text-desc: #edf6f9;
-  --background: #83c5be;
-  --background-strong: #006d77;
+  --text-desc: #5878e0;
+  --background: #2c67be;
   --background-light: #edf6f9;
   --gray: rgb(199, 198, 198);
   --node: yellow;
