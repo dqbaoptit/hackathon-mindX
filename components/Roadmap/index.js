@@ -1,7 +1,6 @@
 import './index.scss';
 import React, { useState, useEffect } from 'react';
 import ReactFlow, {
-  removeElements,
   addEdge,
   MiniMap,
   Controls,
@@ -15,6 +14,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
+import { GetRegisteredRoadmapById } from '../../redux/actions/profile';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -46,6 +46,37 @@ const OverviewFlow = ({
   setElements,
   roadmapId,
 }) => {
+  const [roadmap, setRoadmap] = useState({});
+  const [filterNode, setFilterNode] = useState([...initialElements]);
+
+  useEffect(() => {
+    async function getRoadmap() {
+      const { data } = await GetRegisteredRoadmapById(roadmapId);
+      setRoadmap(data);
+    }
+    getRoadmap();
+  }, []);
+
+  const [mapDone, setMapDone] = useState(false);
+  useEffect(() => {
+    if (roadmap.finished) {
+      Object.keys(filterNode).map((item) => {
+        if (
+          roadmap &&
+          roadmap.finished &&
+          roadmap.finished.includes(filterNode[item].id)
+        )
+          filterNode[item].style = {
+            background: 'green',
+            color: '#fff',
+          };
+      });
+      setTimeout(() => {
+        setMapDone(true);
+      }, 500);
+    }
+  }, [roadmap]);
+
   const onConnect = (params) => setElements((els) => addEdge(params, els));
 
   const handleMark = async (NodeId) => {
@@ -55,11 +86,15 @@ const OverviewFlow = ({
         title: 'Đánh dấu hoàn thành thành công ! ',
         icon: 'success',
       });
+      setMapDone(false);
+      setTimeout(() => setMapDone(true), 500);
+      handleClose();
     } catch (err) {
       swal({
         title: 'Đã có lỗi đáng tiếc xảy ra.',
         icon: 'error',
       });
+      handleClose();
     }
   };
 
@@ -76,36 +111,49 @@ const OverviewFlow = ({
   const [nodeId, setNodeId] = useState(null);
   return (
     <>
-      <ReactFlow
-        elements={initialElements}
-        onElementClick={(e, els) => {
-          handleOpen();
-          setNodeId(els.id);
-        }}
-        connectionLineComponent={Line}
-        onConnect={onConnect}
-        onLoad={onLoad}
-      >
-        <NodesDebugger />
-        {contributing && (
-          <MiniMap
-            nodeStrokeColor={(n) => {
-              if (n.style?.background) return n.style.background;
-              if (n.type === 'input') return '#0041d0';
-              if (n.type === 'output') return '#ff0072';
-              if (n.type === 'default') return '#1a192b';
-              return '#eee';
-            }}
-            nodeColor={(n) => {
-              if (n.style?.background) return n.style.background;
-              return '#fff';
-            }}
-            nodeBorderRadius={2}
-          />
-        )}
-        <Controls />
-        <Background color="#aaa" gap={16} />
-      </ReactFlow>
+      {mapDone ? (
+        <ReactFlow
+          elements={filterNode}
+          onElementClick={(e, els) => {
+            handleOpen();
+            setNodeId(els?.id);
+          }}
+          connectionLineComponent={Line}
+          onConnect={onConnect}
+          onLoad={onLoad}
+        >
+          <NodesDebugger />
+          {contributing && (
+            <MiniMap
+              nodeStrokeColor={(n) => {
+                if (n.style?.background) return n.style.background;
+                if (n.type === 'input') return '#0041d0';
+                if (n.type === 'output') return '#ff0072';
+                if (n.type === 'default') return '#1a192b';
+                return '#eee';
+              }}
+              nodeColor={(n) => {
+                if (n.style?.background) return n.style.background;
+                return '#fff';
+              }}
+              nodeBorderRadius={2}
+            />
+          )}
+          <Controls />
+          <Background color="#aaa" gap={16} />
+        </ReactFlow>
+      ) : (
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '60vh',
+          }}
+        >
+          <h3>Loading....</h3>
+        </div>
+      )}
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"

@@ -6,6 +6,8 @@ import Rating from '@material-ui/lab/Rating';
 
 import Profile from '../ContributorProfile';
 import initialElements from '../Roadmap/initial-elements';
+import { useEffect } from 'react';
+import { GetProgress } from '../../redux/actions/profile';
 const Roadmap = dynamic(import('../Roadmap'), {
   ssr: false,
 });
@@ -34,7 +36,15 @@ export default function RoadmapCard({
   author,
   descAuthor,
   rating,
+  id,
 }) {
+  useEffect(() => {
+    async function getProgress() {
+      const { data } = await GetProgress(id);
+      console.log(data);
+    }
+    getProgress();
+  }, []);
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -49,9 +59,8 @@ export default function RoadmapCard({
   return (
     <>
       <div className="roadmap-card" onClick={handleOpen}>
-        <div className="roadmap-card__left">
+        <div className="roadmap-card__left" align="center">
           <h3>Contributor </h3>
-
           <div className="roadmap-card__left__img">
             <img src={img} alt="" className="img-responsive" />
           </div>
@@ -82,7 +91,7 @@ export default function RoadmapCard({
           <div className={classes.paper}>
             <div className="roadmap-card__modal">
               <div className="roadmap-card__modal__left">
-                <Roadmap initialElements={initialElements} />
+                <Roadmap initialElements={initialElements} roadmapId={id} />
               </div>
               <div className="roadmap-card__modal__right">
                 <Profile />

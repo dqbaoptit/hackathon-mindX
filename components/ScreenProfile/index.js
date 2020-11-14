@@ -28,13 +28,14 @@ function ScreenProfile({ firstName, lastName, registeredRoadmap }) {
         <div>Các Roadmap của bạn </div>
         <div className="profile__info__group">
           <Carousel animation="slide" autoPlay={false} navButtonsAlwaysVisible>
-            {[1, 1, 1].map((item) => (
+            {registeredRoadmap.map((item) => (
               <RoadmapCard
                 img={temp.img}
-                title={temp.title}
+                title={item.name}
                 descAuthor={temp.descAuthor}
                 description={temp.description}
                 author={temp.author}
+                id={item._id}
               />
             ))}
           </Carousel>

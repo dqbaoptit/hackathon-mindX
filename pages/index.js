@@ -11,18 +11,28 @@ import { Grid } from '@material-ui/core';
 
 function Profile() {
   const [user, setUser] = useState({});
+  const [listRoadmaps, setListRoadmaps] = useState([]);
 
   useEffect(() => {
     async function getProfile() {
       const { data } = await GetProfile();
       setUser(data);
     }
+    async function listRoadmaps() {
+      const { data } = await GetRegisteredRoadmaps();
+      setListRoadmaps([...data]);
+    }
+    listRoadmaps();
     getProfile();
   }, []);
 
   return (
     <div style={{ display: 'flex' }}>
-      <ScreenProfile firstName={user.firstName} lastName={user.lastName} />
+      <ScreenProfile
+        firstName={user.firstName}
+        lastName={user.lastName}
+        registeredRoadmap={[...listRoadmaps]}
+      />
     </div>
   );
 }
@@ -65,14 +75,6 @@ const items = [
   },
 ];
 function Home({ user }) {
-  const [listRoadmaps, setListRoadmaps] = useState([]);
-  useEffect(() => {
-    async function listRoadmaps() {
-      const { data } = await GetRegisteredRoadmaps();
-      setListRoadmaps([...data]);
-    }
-    listRoadmaps();
-  }, []);
   return (
     <>
       <Profile />
