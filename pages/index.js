@@ -31,24 +31,30 @@ const items = [
   {
     title: 'Digital Marketing',
     slug: 'marketing',
+    img: '/vercel',
     desc:
       'Thời đại 4.0 đi cùng các lĩnh vực kinh tế, thúc đẩy sự phát triển của xã hội.',
   },
   {
     title: 'An toàn thông tin',
     slug: 'sercurity',
+    img: '/vercel',
 
     desc:
       'Thời đại 4.0 đi cùng các lĩnh vực kinh tế, thúc đẩy sự phát triển của xã hội.',
   },
   {
     title: 'Công nghệ thông tin',
+    img: '/vercel',
+
     slug: 'infomation',
     desc:
       'Thời đại 4.0 đi cùng các lĩnh vực kinh tế, thúc đẩy sự phát triển của xã hội.',
   },
   {
     title: 'Photography',
+    img: '/vercel',
+
     slug: 'photograhy',
     desc:
       'Thời đại 4.0 đi cùng các lĩnh vực kinh tế, thúc đẩy sự phát triển của xã hội.',
@@ -64,7 +70,12 @@ function Home({ user }) {
           <Grid container>
             {items.map((item) => (
               <Grid item xs={12} sm="auto">
-                <FieldCard title={item.title} desc={item.desc} />
+                <FieldCard
+                  title={item.title}
+                  desc={item.desc}
+                  slug={item.slug}
+                  img={item.img}
+                />
               </Grid>
             ))}
           </Grid>
