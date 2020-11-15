@@ -10,6 +10,7 @@ import React, { useEffect, useState } from 'react';
 import { ScreenProfile } from '../components';
 import { GetProfile, GetRegisteredRoadmaps } from '../redux/actions/profile';
 import { Grid } from '@material-ui/core';
+import Api from '../configs/Api';
 
 function Profile() {
   const [user, setUser] = useState({});
@@ -43,7 +44,6 @@ const items = [
   {
     title: 'Digital Marketing',
     slug: 'marketing',
-    img: '/vercel.svg',
     desc:
       'Thời đại 4.0 đi cùng các lĩnh vực kinh tế, thúc đẩy sự phát triển của xã hội.',
     img: '/digital-marketing.jpg',
@@ -51,16 +51,12 @@ const items = [
   {
     title: 'An toàn thông tin',
     slug: 'sercurity',
-    img: '/vercel.svg',
-
     desc:
       'Thời đại 4.0 đi cùng các lĩnh vực kinh tế, thúc đẩy sự phát triển của xã hội.',
     img: '/security.jpg',
   },
   {
     title: 'Công nghệ thông tin',
-    img: '/vercel.svg',
-
     slug: 'infomation',
     desc:
       'Thời đại 4.0 đi cùng các lĩnh vực kinh tế, thúc đẩy sự phát triển của xã hội.',
@@ -68,8 +64,6 @@ const items = [
   },
   {
     title: 'Photography',
-    img: '/vercel.svg',
-
     slug: 'photograhy',
     desc:
       'Thời đại 4.0 đi cùng các lĩnh vực kinh tế, thúc đẩy sự phát triển của xã hội.',
@@ -92,7 +86,19 @@ function Home({ user }) {
       router.push('/login');
     }
   }, []);
-
+  const [field, setField] = useState([]);
+  useEffect(() => {
+    async function get() {
+      try {
+        const { data } = await Api.get(`/fields`);
+        setField(data.data);
+      } catch (err) {
+        consol.log(err);
+      }
+    }
+    get();
+  }, []);
+  console.log(field);
   return (
     <>
       <Profile />
@@ -100,13 +106,13 @@ function Home({ user }) {
       <div className="container">
         <div className="container__field">
           <Grid container>
-            {items.map((item) => (
+            {field.map((item) => (
               <Grid item xs={12} sm="auto">
                 <FieldCard
                   title={item.title}
                   desc={item.desc}
-                  slug={item.slug}
-                  img={item.img}
+                  slug={item._id}
+                  img={item?.majors[0]?.picture}
                 />
               </Grid>
             ))}
