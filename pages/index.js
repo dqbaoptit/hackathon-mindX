@@ -63,6 +63,15 @@ const items = [
       'Thời đại 4.0 đi cùng các lĩnh vực kinh tế, thúc đẩy sự phát triển của xã hội.',
     img: '/photography.jpg',
   },
+  {
+    title: 'Điện tử',
+    // img: '/vercel.svg',
+
+    slug: 'electronic',
+    desc:
+      'Thời đại 4.0 đi cùng các lĩnh vực kinh tế, thúc đẩy sự phát triển của xã hội.',
+    img: '/electronic.jpg',
+  },
 ];
 function Home({ user }) {
   return (
