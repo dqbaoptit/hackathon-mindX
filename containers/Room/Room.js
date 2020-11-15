@@ -10,7 +10,7 @@ import { Row, Col } from 'antd';
 
 const Room = (props) => {
   // eslint-disable-line
-  const { user } = props;
+  const { user, roomId } = props;
   const [userRoadMaps, setUserRoadMaps] = useState([]);
   const [client, setClient] = useState(null);
   const [userTokenVideoCall, setUserTokenVideoCall] = useState(null);
@@ -25,7 +25,7 @@ const Room = (props) => {
           <Conversations user={user} />
         </Col>
         <Col span={19} className="messenger-wrapper__bg-messages">
-          <Messegas user={user} />
+          <Messegas user={user} roomId={roomId} />
         </Col>
       </Row>
     </div>
