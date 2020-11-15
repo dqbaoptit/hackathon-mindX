@@ -42,6 +42,7 @@ export default function RoadmapCard({
   rating,
   isRegistered,
   id,
+  currentRoomId,
 }) {
   useEffect(() => {
     async function getProgress() {
@@ -69,7 +70,7 @@ export default function RoadmapCard({
         title: 'Tham gia roadmap và phòng thành công',
         icon: 'success',
       });
-      if (dataRoom._id) {
+      if (data._id) {
         router.push(`/room/${data.roomId}`);
       }
     } catch (err) {
@@ -80,6 +81,13 @@ export default function RoadmapCard({
       });
     }
   };
+
+  const handleToRoom = () => {
+    if (currentRoomId) {
+      router.push(`/room/${currentRoomId}`);
+    }
+  };
+
   return (
     <>
       <div className="roadmap-card" onClick={handleOpen}>
@@ -137,6 +145,20 @@ export default function RoadmapCard({
                 className="btn btn--deactive"
               >
                 Tham gia
+              </div>
+            )}
+            {isRegistered && (
+              <div
+                onClick={handleToRoom}
+                style={{
+                  position: 'absolute',
+                  bottom: 10,
+                  right: 10,
+                  borderRadius: '10px',
+                }}
+                className="btn btn--deactive"
+              >
+                Vào Phòng
               </div>
             )}
           </div>
