@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import { Avatar, Input, Tooltip, Row, Col } from 'antd';
+import { Avatar, Input, Tooltip, Row, Col, Button } from 'antd';
 import { useRouter } from 'next/router';
 import Modal from 'react-modal';
 import { db } from '../../configs/Firebase';
@@ -28,22 +28,21 @@ const Messages = (props) => {
   let callClient = undefined;
 
   // eslint-disable-line
-  const { user } = props;
+  const { user, roomId: roomId_roodmap } = props;
   const [readError, setReadError] = useState(null);
   const [writeError, setWriteError] = useState(null);
   const [messages, setMessages] = useState('');
   const [chatsRealtime, setChatsRealtime] = useState('');
   const [isModal, setIsModal] = useState(false);
-  const [isChange, setChange] = useState(false)
-  const [roomID, setRoomID] = useState(null)
-  const [roomURL,setRoomURL] = useState('')
-  const router = useRouter()
-  
+  const [isChange, setChange] = useState(false);
+  const [roomID, setRoomID] = useState(null);
+  const [roomURL, setRoomURL] = useState('');
+  const router = useRouter();
 
   useEffect(() => {
-    console.log(window.location.href)
+    // console.log(window.location.href);
     api.setRestToken();
-    const { roomCallId  } = router.query
+    const { roomCallId } = router.query;
     if (roomCallId) {
       roomId = roomCallId;
       join();
@@ -129,8 +128,8 @@ const Messages = (props) => {
     const { roomId: rooId2 } = room;
     const roomTokenSub = await api.getRoomToken(roomId);
     const location = window.location.href;
-    setRoomID(rooId2)  
-    setRoomURL(`https://${location}?roomCallId=${rooId2}`)
+    setRoomID(rooId2);
+    setRoomURL(`https://${location}?roomCallId=${rooId2}`);
     roomId = rooId2;
     roomToken = roomTokenSub;
     console.log({ rooId2, roomToken });
@@ -163,16 +162,16 @@ const Messages = (props) => {
     });
   };
   const addVideo = (video) => {
-    const videoContainer = document.querySelector("#videos");
+    const videoContainer = document.querySelector('#videos');
     video.setAttribute('controls', 'true');
     video.setAttribute('playsinline', 'true');
     videoContainer.appendChild(video);
-    setChange(!isChange)
+    setChange(!isChange);
   };
 
   useEffect(() => {
     try {
-      db.ref('room-1').on('value', (snapshot) => {
+      db.ref(`room-${roomId_roodmap}`).on('value', (snapshot) => {
         let chats = [];
         snapshot.forEach((snap) => {
           chats.push(snap.val());
@@ -218,7 +217,7 @@ const Messages = (props) => {
       // }
       if (messages.length) {
         container.scrollTop = container.scrollHeight;
-        await db.ref('room-1').push({
+        await db.ref(`room-${roomId_roodmap}`).push({
           content: messages,
           timestamp: Date.now(),
           user: user,
@@ -246,7 +245,10 @@ const Messages = (props) => {
           return (
             <div className="messages-wrapper__chat-item">
               <div className="messages-wrapper__avatar-user">
-                <Avatar size="large" icon={chat.user.lastName.trim().charAt(0)} />
+                <Avatar
+                  size="large"
+                  icon={chat.user.lastName.trim().charAt(0)}
+                />
               </div>
               <div className="messages-wrapper__chat-content">
                 <div className="messages-wrapper__chat-message">
@@ -399,36 +401,34 @@ const Messages = (props) => {
         <div className="call-video-wrapper">
           <div className="container-2 has-text-centered" v-cloak id="app">
             <div>
-              <button
+              <Button
                 className="button is-primary"
                 onClick={() => createRoom()}
               >
                 Tạo Meeting
-              </button>
+              </Button>
 
-              <button className="button is-info" onClick={() => joinWithId()}>
+              <Button className="button is-info" onClick={() => joinWithId()}>
                 Join Meeting
-              </button>
+              </Button>
             </div>
-            {
-              roomID && (
-                <div v-if="roomId" className="info">
+            {roomID && (
+              <div v-if="roomId" className="info">
                 <p>
-                   Bạn đang ở trong room <strong>{roomID}</strong>.
+                  Bạn đang ở trong room <strong>{roomID}</strong>.
                 </p>
-              {/* <p>
+                {/* <p>
                 Gửi link này cho bạn bè cùng join room nhé
                 <a v-bind:href="roomUrl" target="_blank">
                   {{ roomUrl }}
                 </a>
                 .
               </p> */}
-              <p>
-                Hoặc bạn cũng có thể copy <code>{roomURL}</code> để share.
-              </p>
-            </div>
-              )
-            }  
+                <p>
+                  Hoặc bạn cũng có thể copy <code>{roomURL}</code> để share.
+                </p>
+              </div>
+            )}
           </div>
 
           <div className="container-2">

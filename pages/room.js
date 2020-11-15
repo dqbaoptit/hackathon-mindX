@@ -5,7 +5,6 @@ import { FieldCard } from '../components';
 import { getCookie } from '../utils/cookie';
 import { localStorageConstant } from '../redux/constants';
 import { isAuthenticated, GetRegisteredRoadmaps } from '../utils/middleware';
-
 import Get from 'lodash/get';
 
 function Home(props) {
@@ -25,11 +24,19 @@ Home.getInitialProps = async (ctx) => {
   if (token) {
     try {
       const { data } = await isAuthenticated(ctx, token);
-      // const roadMaps = await GetRegisteredRoadmaps(ctx, token);
-      // if (!Get(roadMaps, [data]).length) {
-      //   ctx.res.writeHead(302, { Location: '/' });
-      //   ctx.res.end();
-      // }
+      const roadMaps = await GetRegisteredRoadmaps(ctx, token);
+      if (!Get(roadMaps, ['data']).length) {
+        ctx.res.writeHead(302, { Location: '/' });
+        ctx.res.end();
+      }
+      if (
+        !Get(roadMaps, ['data']).some(
+          (roadMap) => roadMap.currentRoom.roomId === roomId
+        )
+      ) {
+        ctx.res.writeHead(302, { Location: '/' });
+        ctx.res.end();
+      }
       return { user: data, roomId };
     } catch (err) {
       console.log(err);
@@ -38,6 +45,7 @@ Home.getInitialProps = async (ctx) => {
       console.log(err);
     }
   } else {
+    console.log(err);
     ctx.res.writeHead(302, { Location: '/login' });
     ctx.res.end();
   }

@@ -3,10 +3,11 @@ import './index.scss';
 import { makeStyles } from '@material-ui/core/styles';
 import { Modal, Backdrop, Fade } from '@material-ui/core';
 import Rating from '@material-ui/lab/Rating';
-
+import { createRooms } from '../../redux/actions/room';
 import Profile from '../ContributorProfile';
 import initialElements from '../Roadmap/initial-elements';
 import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { GetProgress, RegisterRoadmap } from '../../redux/actions/profile';
 import swal from 'sweetalert';
 const Roadmap = dynamic(import('../Roadmap'), {
@@ -50,6 +51,7 @@ export default function RoadmapCard({
   }, []);
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const router = useRouter();
 
   const handleOpen = () => {
     setOpen(true);
@@ -62,10 +64,14 @@ export default function RoadmapCard({
   const registerRoadmap = async () => {
     try {
       const { data } = await RegisterRoadmap(id);
+
       swal({
-        title: 'Tham gia roadmap thành công',
+        title: 'Tham gia roadmap và phòng thành công',
         icon: 'success',
       });
+      if (dataRoom._id) {
+        router.push(`/room/${data.roomId}`);
+      }
     } catch (err) {
       swal({
         title: 'Đã có lỗi xảy ra',
