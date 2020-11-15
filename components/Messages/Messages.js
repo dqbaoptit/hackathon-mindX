@@ -336,7 +336,7 @@ const Messages = (props) => {
                 alt="error"
                 value={messages}
                 onKeyDown={(e) => {
-                  event.preventDefault();
+                  // event.preventDefault();
                   if (e.key === 'Enter' && messages.length) {
                     handleSentMessage();
                   }
