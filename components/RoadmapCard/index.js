@@ -3,10 +3,11 @@ import './index.scss';
 import { makeStyles } from '@material-ui/core/styles';
 import { Modal, Backdrop, Fade } from '@material-ui/core';
 import Rating from '@material-ui/lab/Rating';
-
+import { createRooms } from '../../redux/actions/room';
 import Profile from '../ContributorProfile';
 import initialElements from '../Roadmap/initial-elements';
 import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { GetProgress, RegisterRoadmap } from '../../redux/actions/profile';
 import swal from 'sweetalert';
 const Roadmap = dynamic(import('../Roadmap'), {
@@ -41,6 +42,7 @@ export default function RoadmapCard({
   rating,
   isRegistered,
   id,
+  currentRoomId,
 }) {
   useEffect(() => {
     async function getProgress() {
@@ -50,6 +52,7 @@ export default function RoadmapCard({
   }, []);
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const router = useRouter();
 
   const handleOpen = () => {
     setOpen(true);
@@ -62,18 +65,29 @@ export default function RoadmapCard({
   const registerRoadmap = async () => {
     try {
       const { data } = await RegisterRoadmap(id);
+
       swal({
-        title: 'Tham gia roadmap thành công',
+        title: 'Tham gia roadmap và phòng thành công',
         icon: 'success',
       });
+      if (data._id) {
+        router.push(`/room/${data.roomId}`);
+      }
     } catch (err) {
       swal({
         title: 'Đã có lỗi xảy ra',
-        text: err.response.data.error.message,
+        text: err.response?.data?.error?.message,
         icon: 'error',
       });
     }
   };
+
+  const handleToRoom = () => {
+    if (currentRoomId) {
+      router.push(`/room/${currentRoomId}`);
+    }
+  };
+
   return (
     <>
       <div className="roadmap-card" onClick={handleOpen}>
@@ -116,7 +130,7 @@ export default function RoadmapCard({
                 />
               </div>
               <div className="roadmap-card__modal__right">
-                <Profile idOwner={author} />
+                <Profile />
               </div>
             </div>
             {!isRegistered && (
@@ -131,6 +145,20 @@ export default function RoadmapCard({
                 className="btn btn--deactive"
               >
                 Tham gia
+              </div>
+            )}
+            {isRegistered && (
+              <div
+                onClick={handleToRoom}
+                style={{
+                  position: 'absolute',
+                  bottom: 10,
+                  right: 10,
+                  borderRadius: '10px',
+                }}
+                className="btn btn--deactive"
+              >
+                Vào Phòng
               </div>
             )}
           </div>

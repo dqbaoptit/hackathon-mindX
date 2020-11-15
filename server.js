@@ -30,15 +30,15 @@ app
       }
     });
 
-    server.get('/room/:roomId', (req, res) => {
-      if (req.cookies.token) {
-        const roomId = req.params.roomId;
-        return app.render(req, res, '/room', { ...req.query, roomId });
-      } else {
-        const roomId = req.params.roomId;
-        return app.render(req, res, '/room', { ...req.query, roomId });
-      }
-    });
+    // server.get('/room/:roomId', (req, res) => {
+    //   if (req.cookies.token) {
+    //     const roomId = req.params.roomId;
+    //     return app.render(req, res, '/room', { ...req.query, roomId });
+    //   } else {
+    //     const roomId = req.params.roomId;
+    //     return app.render(req, res, '/room', { ...req.query, roomId });
+    //   }
+    // });
 
     server.get('*', (req, res) => {
       return handle(req, res);
