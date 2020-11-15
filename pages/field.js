@@ -22,7 +22,7 @@ function FieldContainer() {
   const { slug } = router.query;
   const [listRoadmaps, setListRoadmaps] = useState([]);
   const [field, setField] = useState({});
-  const [listAll, setListAll] = useState(false);
+  const [listAll, setListAll] = useState(true);
   useEffect(() => {
     async function getField() {
       try {

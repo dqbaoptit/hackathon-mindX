@@ -73,9 +73,10 @@ export default function RoadmapCard({
         router.push(`/room/${data.roomId}`);
       }
     } catch (err) {
+      console.log(err);
       swal({
         title: 'Đã có lỗi xảy ra',
-        text: err.response.data.error.message,
+        text: err.response?.data?.error?.message,
         icon: 'error',
       });
     }
