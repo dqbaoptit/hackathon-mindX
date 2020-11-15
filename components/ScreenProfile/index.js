@@ -37,6 +37,7 @@ function ScreenProfile({ firstName, lastName, registeredRoadmap }) {
                 description={item.overview}
                 author={item.owner}
                 id={item._id}
+                currentRoomId={item.currentRoom.roomId}
               />
             ))}
           </Carousel>
