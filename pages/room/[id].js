@@ -1,10 +1,10 @@
 import Head from 'next/head';
-import '../styles/Home.module.scss';
-import Room from '../containers/Room';
-import { FieldCard } from '../components';
-import { getCookie } from '../utils/cookie';
-import { localStorageConstant } from '../redux/constants';
-import { isAuthenticated, GetRegisteredRoadmaps } from '../utils/middleware';
+import '../../styles/Home.module.scss';
+import Room from '../../containers/Room';
+import { FieldCard } from '../../components';
+import { getCookie } from '../../utils/cookie';
+import { localStorageConstant } from '../../redux/constants';
+import { isAuthenticated, GetRegisteredRoadmaps } from '../../utils/middleware';
 import Get from 'lodash/get';
 
 function Home(props) {
@@ -20,7 +20,7 @@ function Home(props) {
 }
 Home.getInitialProps = async (ctx) => {
   const token = getCookie(localStorageConstant.ACCESS_TOKEN, ctx);
-  const roomId = Get(ctx, ['query', 'roomId']);
+  const roomId = ctx.query.id;
   if (token) {
     try {
       const { data } = await isAuthenticated(ctx, token);
