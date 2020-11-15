@@ -1,8 +1,9 @@
 import Api, { HOST } from '../../configs/Api';
 
-export const ListRoadmaps = async () => {
+export const ListRoadmaps = async (filter) => {
   try {
-    const { data } = await Api.get('/roadmaps');
+    const route = filter ? `/roadmaps?field=${filter}` : `/roadmaps`;
+    const { data } = await Api.get(`${route}`);
     return data;
   } catch (err) {
     throw err;

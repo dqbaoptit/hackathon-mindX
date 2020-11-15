@@ -22,12 +22,14 @@ function FieldCard({ title, desc, img, slug }) {
         <div className="title">
           <h3>{title}</h3>
         </div>
-        <button
-          className="btn-primary"
-          onClick={() => router.push(`/field?slug=${slug}`)}
-        >
-          Roadmap
-        </button>
+        {slug && (
+          <button
+            className="btn-primary"
+            onClick={() => router.push(`/field?slug=${slug}`)}
+          >
+            Roadmap
+          </button>
+        )}
       </div>
       <div className="ctn__info">
         <div className="ctn__info__class">
