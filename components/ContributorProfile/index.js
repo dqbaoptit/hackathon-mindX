@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react';
 import './index.scss';
-import Api from '../../configs/Api';
 
 export default function Profile({
   img = '/vercel.svg',
@@ -8,21 +6,7 @@ export default function Profile({
   education = '',
   timelineEducation = '',
   experience = 'Software Engineer ',
-  idOwner,
 }) {
-  const [profile, setProfile] = useState({});
-  useEffect(() => {
-    async function getProfile() {
-      try {
-        const { data } = await Api.get(`/user/profile/${idOwner}`);
-        setProfile(data.profile);
-      } catch (err) {
-        console.log(err);
-      }
-    }
-    getProfile();
-  }, []);
-
   return (
     <div className="ctb-profile">
       <img src={img} alt="" className="img-responsive ctb-profile__img" />

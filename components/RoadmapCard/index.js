@@ -122,7 +122,7 @@ export default function RoadmapCard({
                 />
               </div>
               <div className="roadmap-card__modal__right">
-                <Profile idOwner={author} />
+                <Profile />
               </div>
             </div>
             {!isRegistered && (
