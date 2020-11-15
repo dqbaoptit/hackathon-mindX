@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { GetProgress, RegisterRoadmap } from '../../redux/actions/profile';
 import swal from 'sweetalert';
+import { useWindowSize } from '../../hooks/useWindowSize';
 const Roadmap = dynamic(import('../Roadmap'), {
   ssr: false,
 });
@@ -44,6 +45,7 @@ export default function RoadmapCard({
   id,
   currentRoomId,
 }) {
+  const [width, height] = useWindowSize();
   useEffect(() => {
     async function getProgress() {
       const { data } = await GetProgress(id);
@@ -129,9 +131,11 @@ export default function RoadmapCard({
                   isRegistered={isRegistered}
                 />
               </div>
-              <div className="roadmap-card__modal__right">
-                <Profile />
-              </div>
+              {width > 768 && (
+                <div className="roadmap-card__modal__right">
+                  <Profile />
+                </div>
+              )}
             </div>
             {!isRegistered && (
               <div
