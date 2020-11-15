@@ -290,7 +290,7 @@ const Messages = (props) => {
               <ul className="messages-wrapper__tool">
                 <li className="messages-wrapper__camera-wrapper">
                   <a className="messages-wrapper__camera">
-                    <div
+                    {/* <div
                       onClick={openVideoCall}
                       aria-label="Start a group video chat"
                       title="Start a group video chat"
@@ -298,7 +298,7 @@ const Messages = (props) => {
                       className="messages-wrapper__call-video"
                     >
                       <VideoCameraOutlined className="messages-wrapper__video-camera" />
-                    </div>
+                    </div> */}
                   </a>
                 </li>
               </ul>
@@ -336,7 +336,7 @@ const Messages = (props) => {
                 alt="error"
                 value={messages}
                 onKeyDown={(e) => {
-                  event.preventDefault();
+                  // event.preventDefault();
                   if (e.key === 'Enter' && messages.length) {
                     handleSentMessage();
                   }
