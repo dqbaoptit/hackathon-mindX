@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import { useRouter } from 'next/router';
+
 import '../styles/Home.module.scss';
 import { FieldCard } from '../components';
 import { getCookie } from '../utils/cookie';
@@ -6,23 +8,33 @@ import { localStorageConstant } from '../redux/constants';
 import { isAuthenticated } from '../utils/middleware';
 import React, { useEffect, useState } from 'react';
 import { ScreenProfile } from '../components';
-import { GetProfile } from '../redux/actions/profile';
+import { GetProfile, GetRegisteredRoadmaps } from '../redux/actions/profile';
 import { Grid } from '@material-ui/core';
 
 function Profile() {
   const [user, setUser] = useState({});
+  const [listRoadmaps, setListRoadmaps] = useState([]);
 
   useEffect(() => {
     async function getProfile() {
       const { data } = await GetProfile();
       setUser(data);
     }
+    async function listRoadmaps() {
+      const { data } = await GetRegisteredRoadmaps();
+      setListRoadmaps([...data]);
+    }
+    listRoadmaps();
     getProfile();
   }, []);
 
   return (
     <div style={{ display: 'flex' }}>
-      <ScreenProfile firstName={user.firstName} lastName={user.lastName} />
+      <ScreenProfile
+        firstName={user.firstName}
+        lastName={user.lastName}
+        registeredRoadmap={[...listRoadmaps]}
+      />
     </div>
   );
 }
@@ -74,6 +86,13 @@ const items = [
   },
 ];
 function Home({ user }) {
+  const router = useRouter();
+  useEffect(() => {
+    if (!user) {
+      router.push('/login');
+    }
+  }, []);
+
   return (
     <>
       <Profile />
@@ -107,9 +126,6 @@ Home.getInitialProps = async (ctx) => {
       ctx.res.writeHead(302, { Location: '/login' });
       ctx.res.end();
     }
-  } else {
-    ctx.res.writeHead(302, { location: '/login' });
-    ctx.res.end();
   }
   return {};
 };

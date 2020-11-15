@@ -36,6 +36,14 @@ export const GetRegisteredRoadmaps = async () => {
     throw err;
   }
 };
+export const GetRegisteredRoadmapById = async (id) => {
+  try {
+    const { data } = await Api.get(`/user/registered-roadmaps/${id}`);
+    return data;
+  } catch (err) {
+    throw err;
+  }
+};
 
 export const RegisterRoadmap = async (roadmapId) => {
   try {
