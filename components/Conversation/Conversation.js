@@ -4,38 +4,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 import { List, Avatar, Spin } from 'antd';
 import './Conversation.scss';
 
-const data = [
-  {
-    title: 'Ant Design Title 1',
-  },
-  {
-    title: 'Ant Design Title 1',
-  },
-  {
-    title: 'Ant Design Title 1',
-  },
-  {
-    title: 'Ant Design Title 2',
-  },
-  {
-    title: 'Ant Design Title 3',
-  },
-  {
-    title: 'Ant Design Title 4',
-  },
-  {
-    title: 'Ant Design Title 1',
-  },
-  {
-    title: 'Ant Design Title 2',
-  },
-  {
-    title: 'Ant Design Title 3',
-  },
-  {
-    title: 'Ant Design Title 4',
-  },
-];
+const data = [];
 const Conversation = () => {
   //   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
