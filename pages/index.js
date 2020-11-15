@@ -101,7 +101,7 @@ function Home({ user }) {
               <Grid item xs={12} sm="auto">
                 <FieldCard
                   title={item.title}
-                  desc={item.desc}
+                  desc="Thời đại 4.0 đi cùng các lĩnh vực kinh tế, thúc đẩy sự phát triển của xã hội."
                   slug={item._id}
                   img={item?.majors[0]?.picture}
                 />

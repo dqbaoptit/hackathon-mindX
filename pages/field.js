@@ -45,7 +45,7 @@ function FieldContainer() {
       <FieldCard
         title={field && field.title}
         desc="Thời đại 4.0 đi cùng các lĩnh vực kinh tế, thúc đẩy sự phát triển của xã hội."
-        img={field && field?.majors[0].picture}
+        img={field && field.majors && field?.majors[0].picture}
       />
       <hr />
       <div className="field">
